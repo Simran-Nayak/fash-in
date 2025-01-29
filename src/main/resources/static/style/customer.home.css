@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-color: #f3e5f5;
 }
 
@@ -95,7 +95,7 @@ body {
 .product-elements {
     display: flex;
     position: relative;
-    width:100vw;
+    width:100%;
     top: 180px;
     justify-content: center;
     align-items: center;
@@ -126,6 +126,7 @@ body {
 
 .product-container {
     display: flex;
+    gap:30px;
     overflow-x: auto;
     width: 100%;
     margin-left: 40px;
@@ -146,7 +147,7 @@ body {
     /* 4 cards visible at a time with spacing */
     max-width: calc(100% / 4 - 20px);
     /* Same as flex-basis */
-    margin: 10px;
+    
     /* Space between cards */
     background: #fff;
     /* Optional: For better visual feedback */
@@ -251,7 +252,6 @@ body {
     cursor: pointer;
     z-index: 10;
     /* Ensure buttons appear above content */
-
 }
 
 .next-btn {
@@ -260,13 +260,12 @@ body {
 }
 
 .pre-btn {
-    left: 20px;
+    left:0;
 }
 
 .pre-btn img,
 next-btn img {
     opacity: 1;
-
 }
 
 .nxt,
@@ -275,6 +274,7 @@ next-btn img {
 }
 
 .carousel-container {
+    display:flex;
     position: relative;
     top: 110px;
     width: 100%;
@@ -283,16 +283,12 @@ next-btn img {
 }
 
 .carousel {
-    padding:0;
-    margin:0;
-    display: flex;
     animation: slideImages 12s infinite;
 }
 
 .carousel img {
     width: 100vw;
     height: 500px;
-
 }
 
 @keyframes slideImages {
@@ -328,7 +324,6 @@ next-btn img {
         transform: translateX(-300%);
     }
 }
-
 
 .brands {
     display: flex;
@@ -462,6 +457,7 @@ next-btn img {
 
 .static-img {
     position: absolute;
+    top:20px;
     width: 100%;
     height: 100%;
 }
