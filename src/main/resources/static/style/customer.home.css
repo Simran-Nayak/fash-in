@@ -95,6 +95,7 @@ body {
 .product-elements {
     display: flex;
     position: relative;
+    width:100vw;
     top: 180px;
     justify-content: center;
     align-items: center;
@@ -254,6 +255,7 @@ body {
 }
 
 .next-btn {
+    position:absolute;
     right: 0;
 }
 
@@ -281,12 +283,14 @@ next-btn img {
 }
 
 .carousel {
+    padding:0;
+    margin:0;
     display: flex;
     animation: slideImages 12s infinite;
 }
 
 .carousel img {
-    width: 100%;
+    width: 100vw;
     height: 500px;
 
 }
@@ -335,14 +339,13 @@ next-btn img {
     height: 900px;
     top: 250px;
     margin: 0;
-    padding: 20px;
+    padding: 0px;
 }
 
 .product-container-1 {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-
 }
 
 .brands-heading {
@@ -447,7 +450,6 @@ next-btn img {
     line-height: 90px;
     opacity: 0.5;
     text-transform: capitalize;
-
 }
 
 .static-image {
@@ -478,8 +480,6 @@ next-btn img {
     background-color:#EFEFEF;
     height:100%;
 }
-.card-1{
 
-}
 
 
