@@ -47,6 +47,8 @@ body {
 }
 
 .search-btn {
+    position:relative;
+    top:5px;
     margin: 2px;
     /* position: relative; */
     /* left: 120px; */
