@@ -135,7 +135,7 @@ body {
     gap: 30px;
     overflow-x: auto;
     width: 100%;
-    margin-left: 40px;
+    /* margin-left: 40px; */
     scroll-behavior: smooth;
 }
 
