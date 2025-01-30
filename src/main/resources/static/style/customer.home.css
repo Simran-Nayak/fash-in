@@ -447,12 +447,13 @@ next-btn img {
     position: relative;
     top: 230px;
     width: 100%;
-    height: 600px;
+    height: 500px;
     object-fit: cover;
 }
 
 .static-img {
     position: absolute;
+    padding:10px;
     top: 20px;
     width: 100%;
     height: 100%;
