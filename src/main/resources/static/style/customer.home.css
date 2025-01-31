@@ -567,7 +567,6 @@ next-btn img {
 .first-bar{
     font-size:15px;
     font-weight:300;
-    padding:10px;
     position:absolute;
     background-color: #333333;
     height:80px;
@@ -625,7 +624,6 @@ next-btn img {
     margin-left:80px;
 }
 .third-bar{
-    padding:10px;
     display:flex;
     width:100%;
     background-color:rgb(250, 247, 247);
