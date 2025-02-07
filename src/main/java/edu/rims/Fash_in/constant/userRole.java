@@ -1,6 +1,8 @@
 package edu.rims.Fash_in.constant;
 
-/*public class userRole {
-    
-}*/
+public enum UserRole {
+    USER,
+    ADMIN,
+    SELLER
+}
 
