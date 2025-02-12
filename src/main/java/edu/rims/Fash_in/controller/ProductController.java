@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ProductController {
-    @GetMapping("/customer/sign-in")
+    @GetMapping("/customer/home")
     String home() {
-        return "customer/sign-in";
+        return "customer/home";
     }
 }
