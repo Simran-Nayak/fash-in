@@ -10,3 +10,4 @@ public class ProductController {
         return "customer/home";
     }
 }
+
