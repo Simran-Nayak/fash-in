@@ -47,10 +47,6 @@ public class Product {
     @Column(name = "product_image_url", nullable = false, columnDefinition = "TEXT")
     private String productImageUrl;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "product_status", nullable = false)
-    private ProductStatus productStatus = ProductStatus.ACTIVE;
-
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
@@ -62,5 +58,9 @@ public class Product {
 
     @Column(name = "updated_by", length = 255)
     private String updatedBy;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "product_status", nullable = false)
+    private ProductStatus productStatus = ProductStatus.ACTIVE;
 }
 

@@ -1,0 +1,162 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("https://plus.unsplash.com/premium_photo-1664202526559-e21e9c0fb46a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment:fixed; 
+  background-size:cover; 
+  background-size:100% 100%;
+  background-blend-mode: darken;
+  background-color:rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+}
+/* .nav-container{
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:75px;
+  background-color:#9548cd;
+} */
+.logo-img{
+  display:block;
+  position:absolute;
+  margin-left:20px;
+  margin-top:15px;
+  left:0;
+  top:0px;
+  width:130px;
+  height:60px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border:none;
+  border-color: rgb(3, 3, 3);
+  border-radius: 20px;
+  width: 380px;
+  height: 580px;
+  padding: 3rem;
+}
+
+.input {
+  position:relative;
+  top:-40px;
+  border-radius: 10px;
+  border: solid 1px #a5a2a2;
+  background: none;
+  margin-top: 20px;
+  width: 400px;
+  height: 55px;
+  color:#ffffff;
+  font-size:18px;
+}
+
+::placeholder {
+  color: #EFEFEF;
+  font-size: 16px;
+  letter-spacing:1px;
+}
+.div-label{
+  position:relative;
+  top:20px;
+}
+
+label {
+  color: #EFEFEF;
+  display: block;
+  font-size:18px;
+}
+
+.header {
+  position:relative;
+  color: #EFEFEF;
+  font-size:38px;
+  top:-40px;
+}
+
+.anchor-redirect-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+  top:-30px;
+  background-color: #9548cd;
+  margin-top: 20px;
+  margin-left: 25px;
+  color: #ffffff;
+  border: none;
+  width: 350px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 700;
+  transition:0.3s ease;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+.btn:hover{
+  scale:1.05;
+}
+
+.OR {
+  position:relative;
+  top:-30px;
+  margin-left: 185px;
+}
+
+#password-reset {
+  text-decoration: none;
+  margin-top:0;
+  display: inline-block;
+  margin-left: 120px;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  transition:0.2s ease;
+}
+#password-reset:hover{
+  color:rgb(244, 98, 127);
+  scale:1.1;
+}
+.checkbox{
+  height:18px;
+  width:20px;
+}
+
+p {
+  color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+}
+.sign-up{
+  position: relative;
+  top:30px;
+  font-weight: 600;
+}
+.New-to-paragraph{
+  display:inline-block;
+}
+.signup{
+  display:inline-block;
+  position:relative;
+  top:20px;
+}
+.sign-up a{
+  text-decoration:none;
+  font-size:21px;
+  font-weight:700;
+  transition:0.2s ease;
+}
+.sign-up a:hover{
+  color:blue;
+}
