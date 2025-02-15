@@ -1,7 +1,6 @@
 package edu.rims.Fash_in.constant;
 
-public enum ProductStatus {
-    PENDING,
+public enum CategoryStatus {
     ACTIVE,
     INACTIVE
 }

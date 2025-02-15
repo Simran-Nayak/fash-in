@@ -3,64 +3,59 @@ package edu.rims.Fash_in.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
+
 import edu.rims.Fash_in.constant.ProductStatus;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 @Getter
 @Setter
-public class Product {
+public class Product extends Auditable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private Long productId;
+    private String productId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
-    @Column(name = "name", nullable = false, length = 255)
-    private String name;
-
-    @Column(name = "product_category", nullable = false, length = 100)
-    private String productCategory;
-
-    @Column(name = "category_id", nullable = false, length = 255)
-    private String categoryId;
-
-    @Column(name = "seller_id", nullable = false)
-    private Long sellerId;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 
     @Column(name = "product_title", nullable = false, length = 255)
     private String productTitle;
 
+    @Column(name = "product_description", columnDefinition = "TEXT")
+    private String productDescription;
+
     @Column(name = "product_price", nullable = false)
-    private BigDecimal productPrice;
+    private double productPrice;
 
     @Column(name = "product_stock_quantity", nullable = false)
-    private Integer productStockQuantity;
+    private int productStockQuantity;
 
     @Column(name = "product_image_url", nullable = false, columnDefinition = "TEXT")
     private String productImageUrl;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
-
-    @Column(name = "updated_at", nullable = false)
-    private LocalDateTime updatedAt = LocalDateTime.now();
-
-    @Column(name = "created_by", length = 255)
-    private String createdBy;
-
-    @Column(name = "updated_by", length = 255)
-    private String updatedBy;
-
     @Enumerated(EnumType.STRING)
+<<<<<<< HEAD
     @Column(name = "product_status", nullable = false)
     private ProductStatus productStatus = ProductStatus.PENDING;
+=======
+    @Column(name = "product_status", nullable = false, columnDefinition = "ENUM('ACTIVE', 'INACTIVE')")
+    private ProductStatus productStatus = ProductStatus.ACTIVE;
+
+    @OneToMany(mappedBy ="product")
+    private List<OrderItem> orderItems;
+
+    @OneToMany(mappedBy ="product")
+    private List<Wishlist> wishlists;
+
+    @OneToMany(mappedBy ="product")
+    private List<Review> reviews;
+
+
+>>>>>>> d105b5881fe209bb19b5493f219d122dd953ebf7
 }
+
 

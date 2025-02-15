@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FashInApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FashInApplication.class, args);
+	SpringApplication.run(FashInApplication.class, args);
 	}
 }
