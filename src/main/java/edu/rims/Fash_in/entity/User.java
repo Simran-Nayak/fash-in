@@ -37,5 +37,14 @@ public class User extends Auditable {
  
     @OneToMany(mappedBy ="user")
     private List<Order> orders;
+
+    @OneToMany(mappedBy ="user")
+    private List<Wishlist> wishlists;
+
+    @OneToMany(mappedBy ="user")
+    private List<Payment> payments;
+
+    @OneToMany(mappedBy ="user")
+    private List<Review> reviews;
 }
 

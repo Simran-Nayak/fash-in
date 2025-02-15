@@ -10,7 +10,7 @@ import edu.rims.Fash_in.constant.Rating;
 @Getter
 @Setter
 
-public class Ratings {
+public class Review {
 
     @Id
     @Column(name = "review_id", length = 255)

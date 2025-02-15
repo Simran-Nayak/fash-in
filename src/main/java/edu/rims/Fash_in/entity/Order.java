@@ -3,6 +3,9 @@ package edu.rims.Fash_in.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
+
 import edu.rims.Fash_in.constant.OrderStatus;
 
 
@@ -27,6 +30,12 @@ public class Order extends Auditable {
     @Enumerated(EnumType.STRING)
     @Column(name = "order_status", nullable = false)   
     private OrderStatus orderStatus = OrderStatus.PENDING;
+
+    @OneToMany(mappedBy ="order")
+    private List<OrderItem> orderItems;
+
+    @OneToMany(mappedBy ="order")
+    private List<Payment> payments;
 
 }
 
