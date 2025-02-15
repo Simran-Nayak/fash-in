@@ -61,6 +61,6 @@ public class Product {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "product_status", nullable = false)
-    private ProductStatus productStatus = ProductStatus.ACTIVE;
+    private ProductStatus productStatus = ProductStatus.PENDING;
 }
 

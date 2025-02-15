@@ -10,7 +10,7 @@ body {
   background-size:cover; 
   background-size:100% 100%;
   background-blend-mode: darken;
-  background-color:rgba(0, 0, 0, 0.2);
+  background-color:rgba(0, 0, 0, 0.3);
   font-family: sans-serif;
 }
 /* .nav-container{
@@ -102,7 +102,7 @@ label {
   letter-spacing: 1px;
   text-decoration: none;
 }
-.btn:hover{
+.anchor-redirect-btn:hover{
   scale:1.05;
 }
 

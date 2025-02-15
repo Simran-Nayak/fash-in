@@ -2,7 +2,7 @@ CREATE SCHEMA fash_in;
 
 use fash_in;
 
-CREATE TABLE users (
+CREATE TABLE user (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     user_email VARCHAR(255) UNIQUE NOT NULL,
     user_password VARCHAR(255) NOT NULL,
@@ -10,9 +10,9 @@ CREATE TABLE users (
     user_address TEXT,
     user_role ENUM('USER','ADMIN','SELLER') DEFAULT 'USER',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
-    updated_by VARCHAR(255),
+    updated_by VARCHAR(255)
 );
 
 CREATE TABLE product (
@@ -20,18 +20,20 @@ CREATE TABLE product (
     user_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
     product_category VARCHAR(100) NOT NULL,
-    category_id VARCHAR(255) NOT NULL,
+    category_id INT NOT NULL,
     seller_id INT NOT NULL,
     product_title VARCHAR(255) NOT NULL,
     product_price DECIMAL(10,2) NOT NULL,
-    product_stock_quantity INT NOT NULL CHECK (stock_quantity >=0),
+    product_stock_quantity INT NOT NULL CHECK (product_stock_quantity >= 0),
     product_image_url TEXT NOT NULL,
     product_status ENUM('ACTIVE','INACTIVE') DEFAULT 'ACTIVE',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
     updated_by VARCHAR(255),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES category(category_id) ON DELETE CASCADE,
+    FOREIGN KEY (seller_id) REFERENCES user(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE category (
@@ -40,12 +42,13 @@ CREATE TABLE category (
     category_description TEXT NULL,
     category_price DECIMAL(10,2) NOT NULL,
     category_image_url TEXT NOT NULL,
-    category_status ENUM ('ACTIVE','INACTIVE') DEFAULT 'ACTIVE'
+    category_status ENUM ('ACTIVE','INACTIVE') DEFAULT 'ACTIVE',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
     updated_by VARCHAR(255),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(category_id) ON DELETE CASCADE
 );
 
 CREATE TABLE order_table (
