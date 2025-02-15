@@ -37,6 +37,10 @@ public class Product extends Auditable {
     @Column(name = "product_image_url", nullable = false, columnDefinition = "TEXT")
     private String productImageUrl;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "product_status", nullable = false, columnDefinition = "ENUM('ACTIVE', 'INACTIVE')")
+    private ProductStatus productStatus = ProductStatus.ACTIVE;
+
     @OneToMany(mappedBy ="product")
     private List<OrderItem> orderItems;
 
@@ -46,9 +50,7 @@ public class Product extends Auditable {
     @OneToMany(mappedBy ="product")
     private List<Review> reviews;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ProductStatus", nullable = false)
-    private  ProductStatus productStatus = ProductStatus.ACTIVE;
-};
+
+}
 
 
