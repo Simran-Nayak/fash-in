@@ -1,0 +1,530 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    height:100vh;
+    font-family: Arial, sans-serif;
+    
+}
+
+.navbar {
+    display: flex;
+    position: absolute;
+    top:0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #67308D;
+    height: 100px;
+    width: 100%;
+    z-index:10;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin-left: 30px;
+    right: 200px;
+}
+
+.navbar li a {
+    color: #EFEFEF;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+
+.logo-img {
+    width: 130px;
+    height: 80px;
+}
+
+.search-btn {
+    position: relative;
+    top: 5px;
+    margin: 2px;
+    background-color: #901bb7;
+    border: none;
+    font-size: 23px;
+    color: #ffffff;
+    width: 110px;
+    height: 40px;
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.search-btn:hover {
+    cursor: pointer;
+    background-color: #221737;
+    scale: 1.1;
+}
+
+
+button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.product-details p{
+    padding:10px;
+}
+
+.product-details h1{
+    letter-spacing: 2px;
+    padding:10px;
+}
+
+.product-container {
+    display: flex;
+    position:relative;
+    top:100px;
+    padding: 30px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-section {
+    display: flex;
+    gap: 10px;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.thumbnails img {
+    width: 60px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.main-image {
+    width: 350px;
+    border-radius: 10px;
+}
+
+.product-details {
+    margin-left: 40px;
+    width: 50%;
+}
+
+.badge {
+    color: blue;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.rating {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+}
+
+.discount {
+    font-size: 18px;
+    color: red;
+    margin-left: 10px;
+}
+
+.mrp {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.sizes {
+    display: flex;
+    gap: 10px;
+}
+
+.sizes button {
+    padding: 8px 40px;
+    margin-right:10px;
+    margin-top:10px;
+    border: 1px solid black;
+    background: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    color:#000000;
+    border-radius:5px;
+}
+
+.sizes button:hover {
+    background-color:#67308D;
+    color: white;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.buttons button{
+    padding:10px 50px;
+    border-radius:5px;
+    margin-top:10px;
+    margin-bottom:20px;
+}
+
+.input-pincode{
+    display:block;
+    position:relative;
+    width:250px;
+    height:30px;
+    margin:5px 0px;
+    border-radius:5px;
+}
+
+.wishlist {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.wishlist:hover {
+    background-color: #67308D;
+    color: white;
+}
+
+.cart {
+    background-color: #901bb7;
+    color: white;
+}
+
+.cart:hover {
+    background-color: #67308D;
+}
+
+.apply {
+    margin-top: 10px;
+    background-color: #901bb7;
+
+}
+
+.apply:hover {
+    background-color: #67308D;
+}
+
+
+.product-infomation{
+    display:flex;
+    position:absolute;
+    padding:20px;
+    top:100%;
+}
+
+.product-infomation h1{
+    font-size:24px;
+    padding:15px 0px;
+}
+
+.span{
+    display:block;
+    margin-bottom:10px;
+    font-size:22px;
+    font-weight: bolder;
+}
+
+.info li{
+    list-style: none;
+}
+
+.bold{
+    margin-top:40px;
+    font-size:18px;
+    font-weight:bolder;
+}
+.light{
+    color:darkgray;
+    margin-bottom:10px;
+}
+
+.vertical{
+    position:absolute;
+    left:16rem;
+    bottom:1.5rem;
+    height:22.50rem;
+    border:0.5px solid darkgray;
+}
+
+.second-content{
+    position:absolute;
+    width:200px;
+    left:310px;
+    bottom:180px;
+}
+
+.know-your-product{
+    display:block;
+    position:relative;
+    top:38rem;
+}
+
+.know-your-product h2{
+    padding:0px 20px;
+}
+
+.know-your-product p{
+    padding:20px 20px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.review-container {
+    position:relative;
+    top:37rem;
+    background: #fff;
+    width:98%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+.overall-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stars {
+    color: #ffcc00;
+    font-size: 20px;
+}
+
+.rating-value {
+    font-size: 18px;
+}
+
+.most-useful-review {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info img {
+    border-radius: 50%;
+}
+
+.verified {
+    color: green;
+    font-size: 14px;
+}
+
+.review-date {
+    margin-left: auto;
+    color: gray;
+    font-size: 14px;
+}
+
+.user-rating {
+    color: #ffcc00;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.product-info {
+    color: gray;
+    font-size: 14px;
+}
+
+.tags, .hashtags {
+    margin-top: 10px;
+}
+
+.tags span, .hashtags span {
+    background: #f0f0f0;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.read-reviews {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.read-reviews:hover {
+    background: #555;
+}
+
+
+.footer {
+    position: relative;
+    top: 37rem;
+    background-color: #EFEFEF;
+    width: 100%;
+}
+
+.first-bar {
+    font-size: 15px;
+    font-weight: 300;
+    position: absolute;
+    background-color: #1C1948;
+    height: 80px;
+    width: 100%;
+    color: #EFEFEF;
+}
+
+#content-1 {
+    left: 20px;
+    top: 10px;
+    position: absolute;
+}
+
+#content-2 {
+    top: 10px;
+    position: absolute;
+    margin-left: 500px;
+}
+
+#content-3 {
+    position: relative;
+    margin-left: 500px;
+}
+
+.span-footer {
+    display: block;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.second-bar {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 80px;
+    background-color: #827a7a38;
+    width: 100%;
+    height: 200px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 17px;
+    letter-spacing: 3px;
+}
+
+.about-us {
+    letter-spacing: 2px;
+    padding: 10px;
+    margin-left: 80px;
+}
+
+.help {
+    padding: 10px;
+    margin-left: 80px;
+}
+
+.policy {
+    padding: 10px;
+    margin-left: 80px;
+}
+
+.quick-links {
+    padding: 10px;
+    margin-left: 80px;
+}
+
+.third-bar {
+    display: flex;
+    padding:10px;
+    background-color: rgb(250, 247, 247);
+    flex-wrap: wrap;
+    position: absolute;
+    top: 250px;
+}
+
+.third-bar span {
+    color: rgb(142, 138, 138);
+    margin-top: 5px;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.woman {
+    margin-left: 18px;
+}
+
+.men {
+    margin-left:65px;
+}
+
+.kids {
+    margin-left: 55px;
+}
+
+.footer-brands {
+    margin-left: 90px;
+}
+
+.skin-care {
+    margin-left: 90px;
+}
+
+.hair-care {
+    margin-left: 60px;
+}
+
+.fashin-endbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    top: 60px;
+    position: relative;
+    width:100%;
+    height: 60px;
+    background-color:#67308D;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.first-bar a {
+    top: 35px;
+    position: relative;
+    font-size: 24px;
+    margin: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}

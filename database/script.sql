@@ -8,31 +8,16 @@ CREATE TABLE user (
     user_password VARCHAR(255) NOT NULL,
     user_phone VARCHAR(20),
     user_address TEXT,
-<<<<<<< HEAD
-    user_role ENUM('USER','ADMIN','SELLER') DEFAULT 'USER',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-=======
     user_role ENUM('USER','ADMIN') DEFAULT 'USER',
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
->>>>>>> d105b5881fe209bb19b5493f219d122dd953ebf7
     created_by VARCHAR(255),
     updated_by VARCHAR(255)
 );
 
 CREATE TABLE product (
-<<<<<<< HEAD
-    product_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    product_category VARCHAR(100) NOT NULL,
-    category_id INT NOT NULL,
-    seller_id INT NOT NULL,
-=======
     product_id VARCHAR PRIMARY KEY,
     category_id VARCHAR(255) NOT NULL,
->>>>>>> d105b5881fe209bb19b5493f219d122dd953ebf7
     product_title VARCHAR(255) NOT NULL,
     product_descripion TEXT NULL,
     product_price DECIMAL(10,2) NOT NULL,
@@ -43,13 +28,7 @@ CREATE TABLE product (
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
     updated_by VARCHAR(255),
-<<<<<<< HEAD
-    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (category_id) REFERENCES category(category_id) ON DELETE CASCADE,
-    FOREIGN KEY (seller_id) REFERENCES user(user_id) ON DELETE CASCADE
-=======
     FOREIGN KEY (category_id) REFERENCES category(id) ON DELETE CASCADE
->>>>>>> d105b5881fe209bb19b5493f219d122dd953ebf7
 );
 
 CREATE TABLE category (
@@ -58,21 +37,11 @@ CREATE TABLE category (
     category_description TEXT NULL,
     category_price DECIMAL(10,2) NOT NULL,
     category_image_url TEXT NOT NULL,
-<<<<<<< HEAD
-    category_status ENUM ('ACTIVE','INACTIVE') DEFAULT 'ACTIVE',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    created_by VARCHAR(255),
-    updated_by VARCHAR(255),
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(category_id) ON DELETE CASCADE
-=======
     category_status ENUM ('ACTIVE','INACTIVE') DEFAULT 'ACTIVE'
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
     updated_by VARCHAR(255)
->>>>>>> d105b5881fe209bb19b5493f219d122dd953ebf7
 );
 
 CREATE TABLE order_table (
