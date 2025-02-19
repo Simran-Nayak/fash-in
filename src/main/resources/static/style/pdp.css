@@ -90,7 +90,11 @@ button {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 03276b1d624161bf4da17284188bed31a1025825
 .image-section {
     display: flex;
     gap: 10px;
@@ -390,6 +394,10 @@ h2, h3 {
     background: #555;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 03276b1d624161bf4da17284188bed31a1025825
 .footer {
     position: relative;
     top: 37rem;
