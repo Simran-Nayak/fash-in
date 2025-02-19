@@ -11,6 +11,7 @@ import edu.rims.Fash_in.constant.WishlistStatus;
 @Table(name = "wishlist")
 @Getter
 @Setter
+
 public class Wishlist extends Auditable {
 
     @Id
