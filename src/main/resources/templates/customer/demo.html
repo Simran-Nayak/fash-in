@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Image on Click</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="changeImageBtn">Change Image</button>
+    
+    <img id="targetImage" src="https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/p/f/f/s-tsrt-catalog-03-kajaru-original-imagqktmfsngyvsg.jpeg?q=70" alt="Original Image">
+
+    <script>
+        document.getElementById("changeImageBtn").addEventListener("click", function() {
+            let image = document.getElementById("targetImage");
+            image.src = "https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/y/c/o/m-round-5-108-inktees-original-imah34yszeb7gruz.jpeg?q=70"; // New image URL
+        });
+    </script>
+
+</body>
+</html>

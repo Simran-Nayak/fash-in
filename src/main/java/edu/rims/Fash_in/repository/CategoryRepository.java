@@ -1,5 +1,10 @@
 package edu.rims.Fash_in.repository;
 
-public class CategoryRepository {
+import edu.rims.Fash_in.entity.Category;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository extends JpaRepository<Category, String> {
+
     
 }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/style/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="#"><img src="/images/logo.png" alt="logo" class="logo-img"></a>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search your Items .......">
+            <i class="search-icon fas fa-search"></i>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Profile &#9660</button>
+            <div class="dropdown-content">
+                <a href="#">My Profile</a>
+                <a href="#">Order</a>
+                <a href="#">Wishlist</a>
+                <a href="#">Coupons</a>
+                <a href="#">Gift Cards</a>
+                <a href="#">Notifications</a>
+                <a href="#" id="Logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="wrap">
+            <span class="address-reference">To your Current Saved address ></span>
+            <a class="address-update" href="#">Change address</a>
+        </div>
+        <div class="container">
+            <div class="wrapper">
+                <img class="cart-img"
+                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/g/z/1/xl-pst-056-shimak-original-imah2yyk3vmncgfn.jpeg?q=70"
+                    alt="image">
+                <div class="info">
+                    <h3>Men Regular Fit Checkered Spread Collar Casual Shirt</h3>
+                    <p class="cart-specs">Fits:Regular|Size:XL</p>
+                    <span class="deliver-date">Delivery by Sun Feb 23 |<span class="charges-span">$40</span><span
+                            class="free-span">Free</span> </span>
+                    <span class="actual-price">$769</span>
+                    <span class="amount">$1766</span>
+                    <span class="offer">63% off 2Offers available !!</span>
+                </div>
+            </div>
+            <div class="counter-box">
+                <button onclick="decrease()">-</button>
+                <div class="count" id="count">0</div>
+                <button onclick="increase()">+</button>
+            </div>
+
+            <div class="place-order">
+                <button class="order-btn">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="Calc">
+        <h3>Price Details</h3>
+        <hr>
+        <div class="amount">Price</div>
+        <div class="discount">Discount</div>
+        <div class="delivery-charges"> Delivery Charges</div>
+        <hr>
+        <div class="total">Total Amount: </div>
+        <hr>
+        
+    </div>
+
+    <script>
+        let count = 0;
+
+        function increase() {
+            count++;
+            document.getElementById("count").textContent = count;
+        }
+
+        function decrease() {
+            if (count > 0) {
+                count--;
+                document.getElementById("count").textContent = count;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

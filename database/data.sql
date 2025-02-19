@@ -1,10 +1,9 @@
 USE fash_in;
 
-INSERT INTO product (
-    user_id, name, product_category, category_id, seller_id, product_title, 
-    product_price, product_stock_quantity, product_image_url, product_status, 
-    created_by, updated_by
-) VALUES 
-(1, 'Men T-Shirt', 'Clothing', 1, 2, 'Stylish Cotton T-Shirt', 19.99, 50, 'https://example.com/tshirt.jpg', 'ACTIVE', 'admin', 'admin'),
-(2, 'Women Handbag', 'Accessories', 2, 3, 'Luxury Leather Handbag', 79.99, 30, 'https://example.com/handbag.jpg', 'ACTIVE', 'admin', 'admin'),
-(3, 'Smart Watch', 'Electronics', 3, 4, 'Latest Smart Watch 2024', 199.99, 20, 'https://example.com/smartwatch.jpg', 'INACTIVE', 'admin', 'admin');
+INSERT INTO category (category_id, category_title, category_description, category_price, category_image_url, category_status, created_date, updated_date, created_by, updated_by) 
+VALUES 
+('CAT001', 'Men’s Shirts', 'A variety of casual and formal shirts', 29.99, 'https://example.com/images/mens-shirts.jpg', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'admin', 'admin'),
+('CAT002', 'Women’s Dresses', 'Stylish and elegant dresses for women', 49.99, 'https://example.com/images/womens-dresses.jpg', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'admin', 'admin'),
+('CAT003', 'Sportswear', 'Comfortable and durable sportswear', 39.99, 'https://example.com/images/sportswear.jpg', 'INACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'admin', 'admin'),
+('CAT004', 'Footwear', 'Trendy and comfortable shoes', 59.99, 'https://example.com/images/footwear.jpg', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'admin', 'admin'),
+('CAT005', 'Accessories', 'Fashionable accessories like watches and bags', 19.99, 'https://example.com/images/accessories.jpg', 'INACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'admin', 'admin');
