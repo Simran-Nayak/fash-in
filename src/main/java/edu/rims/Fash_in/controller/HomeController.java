@@ -10,7 +10,7 @@ import edu.rims.Fash_in.entity.Category;
 import edu.rims.Fash_in.repository.CategoryRepository;
 
 @Controller
-public class ProductController {
+public class HomeController {
     @Autowired
     private CategoryRepository categoryRepository;
 

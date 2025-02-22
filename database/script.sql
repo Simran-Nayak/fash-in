@@ -15,21 +15,7 @@ CREATE TABLE user (
     updated_by VARCHAR(255)
 );
 
-CREATE TABLE product (
-    product_id VARCHAR PRIMARY KEY,
-    category_id VARCHAR(255) NOT NULL,
-    product_title VARCHAR(255) NOT NULL,
-    product_descripion TEXT NULL,
-    product_price DECIMAL(10,2) NOT NULL,
-    product_stock_quantity INT NOT NULL CHECK (product_stock_quantity >= 0),
-    product_image_url TEXT NOT NULL,
-    product_status ENUM('ACTIVE','INACTIVE') DEFAULT 'ACTIVE',
-    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    created_by VARCHAR(255),
-    updated_by VARCHAR(255),
-    FOREIGN KEY (category_id) REFERENCES category(id) ON DELETE CASCADE
-);
+
 
 CREATE TABLE category (
     category_id VARCHAR(255) PRIMARY KEY ,
@@ -112,4 +98,19 @@ CREATE TABLE wishlist (
     updated_by VARCHAR(255),
     FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES Product(id) ON DELETE CASCADE
+);
+CREATE TABLE product (
+    product_id VARCHAR PRIMARY KEY,
+    category_id VARCHAR(255) NOT NULL,
+    product_title VARCHAR(255) NOT NULL,
+    product_description TEXT NULL,
+    product_price DECIMAL(10,2) NOT NULL,
+    product_stock_quantity INT NOT NULL CHECK (product_stock_quantity >= 0),
+    product_image_url TEXT NOT NULL,
+    product_status ENUM('ACTIVE','INACTIVE') DEFAULT 'ACTIVE',
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by VARCHAR(255),
+    updated_by VARCHAR(255),
+    FOREIGN KEY (category_id) REFERENCES category(id) ON DELETE CASCADE
 );
