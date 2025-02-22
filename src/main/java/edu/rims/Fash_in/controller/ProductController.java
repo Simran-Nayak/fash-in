@@ -14,11 +14,11 @@ public class ProductController {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @GetMapping("/customer/home")
+    
     String home(Model model) {
         List<Category> categories = categoryRepository.findAll();
         model.addAttribute("categories", categories);
-        return "customer/home";
+        return null;
     }
 }
 
