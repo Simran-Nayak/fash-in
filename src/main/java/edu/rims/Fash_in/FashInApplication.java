@@ -10,3 +10,4 @@ public class FashInApplication {
 	SpringApplication.run(FashInApplication.class, args);
 	}
 }
+ 
