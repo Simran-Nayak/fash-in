@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -94,7 +94,7 @@
         <div class="product">
             <h1 class="product-head">Mens Top-Wears</h1>
             <div class="product-container">
-                <div class="product-card" data-th-each="category : ${categories}">
+                <div class="product-card" data-th-each="product : ${products}">
                     <div class="product-image">
                         <span class="discount-tag">50% off</span>
                         <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/l/p/g/xl-mens-staylist-chex-shirt-dbex-original-imah3hj4wgjq98dz.jpeg?q=70"
@@ -102,9 +102,9 @@
                         <button class="card-btn">Add to Wishlist</button>
                     </div>
                     <div class="product-info">
-                        <h2 class="product-brand" data-th-text="${category.categoryTitle}"></h2>
-                        <p class="product-short-description">A short line about the product</p>
-                        <span class="price" data-th-text="${category.categoryPrice}">$20</span>
+                        <h2 class="product-brand" ></h2>
+                        <p class="product-short-description" th:text="${product.productTitle}">A short line about the product</p>
+                        <span class="price" >$20</span>
                         <span class="actual-price">$40</span>
                     </div>
                 </div>
