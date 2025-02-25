@@ -353,6 +353,7 @@ next-btn img {
 
 .product-container-1 {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
 }
@@ -360,7 +361,7 @@ next-btn img {
 .brands-heading {
     display: inline-block;
     width: 25rem;
-    padding: 0 4vw;
+    padding: 0 10vw;
     height: 20px;
     margin: 0;
     font-size: 30px;
@@ -370,10 +371,10 @@ next-btn img {
 }
 
 .card-1 {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4,8fr);
     position: relative;
     background-color: #ffffff;
-    left: 40px;
     width:15rem;
     height: 23.7rem;
     margin: 0 0 20px 20px;
@@ -513,11 +514,11 @@ next-btn img {
 }
 
 .cards-large {
-    display: flex;
-    flex: 0 0 (100/3 - 20px);
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
     position: relative;
     height: 550px;
-    width: 400px;
+    width: 350px;
     border-radius: 20px;
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
     transition: 0.5s ease;
