@@ -2,7 +2,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
 }
 
 .admin-container {
@@ -81,7 +80,7 @@ th {
     color: white;
 }
 
-button {
+.button {
     background: #6b2e96;
     color: white;
     border: none;
@@ -91,7 +90,13 @@ button {
     margin-right:15px;
 }
 
-button:hover {
+.button:hover {
     background: #4b1c6d;
     color:#FB641B;
+}
+#form{
+    display:none;
+}
+#container{
+    //display:block;
 }

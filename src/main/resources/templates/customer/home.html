@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fash-inn</title>
-    <link rel="stylesheet" href="/style/customer.home.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
+</head> -->
+
+<head data-th-replace="~{fragment/common :: head}"></head>
 
 <body>
-    <div class="nav-content">
+    <link rel="stylesheet" href="/style/customer.home.css">
+    <!-- <div class="nav-content">
         <div class="navbar">
             <div class="logo">
                 <a href="#"><img src="/images/logo.png" alt="logo" class="logo-img"></a>
             </div>
             <ul class="unordered">
-                <li class="lists" id="drop-1"><a class="nav-content" href="http://localhost:1211/customer/plp">Woman</a>
+                <li class="lists" id="drop-1" data-th-each="category : ${categories}"><a class="nav-content"
+                        data-th-href="|/customer/plp?category=${category.categoryId}|" data-th-text="${category.categoryTitle}"></a>
                 </li>
-                <li class="lists"><a class="nav-content" href="http://localhost:1211/customer/plp">Men</a></li>
-                <li class="lists"><a class="nav-content" href="http://localhost:1211/customer/plp">Kids</a></li>
-                <li class="lists"><a class="nav-content" href="http://localhost:1211/customer/plp">Skincare</a></li>
-                <li class="lists"><a class="nav-content" href="http://localhost:1211/customer/plp">Hair</a></li>
-                <li class="lists"><a class="nav-content" href="http://localhost:1211/customer/plp">Fragrance</a></li>
+
                 <li><button class="search-btn"><i class="fas fa-search icon"></i></button></li>
                 <li class="lists-1"><a href="/customer/sign-in">
                         <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px"
@@ -35,28 +34,10 @@
                 <li class="lists-1"><a href="#"> &#9825 Wishlists</a></li>
                 <li class="lists-1"><a href="http://localhost:1211/customer/cart">&#x1F6D2 Cart</a></li>
             </ul>
-            <!-- <button class="search-btn"><i class="fas fa-search icon"></i></button>
-            <ul class="navbar-2">
-                <li class="lists-1"><a href="#">&#8448 Account</a></li>
-                <li class="lists-1"><a href="#"> &#9825 Wishlists</a></li>
-                <li class="lists-1"><a href="#">&#x1F6D2 Cart</a></li>
-            </ul> -->
         </div>
-        <!-- <div>
-            <nav class="dropdown">
-                <ul>
-                    <li class="dropdown-lists">Sale! &#x25BE</li>
-                    <li class="dropdown-lists">Trending &#x25BE</li>
-                    <li class="dropdown-lists">Topwear &#x25BE</li>
-                    <li class="dropdown-lists">Bottomwear &#x25BE</li>
-                    <li class="dropdown-lists">Bags &#x25BE</li>
-                    <li class="dropdown-lists">Watches &#x25BE</li>
-                    <li class="dropdown-lists">Skincare &#x25BE</li>
-                    <li class="dropdown-lists">Infants &#x25BE</li>
-                </ul>
-            </nav>
-        </div> -->
-    </div>
+    </div> -->
+
+    <nav data-th-replace="~{fragment/common :: nav}"></nav>
     <div class="carousel-container">
         <div class="carousel">
             <img src="/images/slide-1.webp" alt="Image 1" class="img">
@@ -81,7 +62,6 @@
                 <img src="/images/previous-btn.png" alt="Previous" class="pre">
             </button>
             <div class="product-container">
-                <!-- Add as many product cards as needed -->
                 <div class="product-card">
                     <div class="product-image">
                         <span class="discount-tag">50% off</span>
@@ -367,7 +347,7 @@
             </div>
         </div>
     </div>
-    <div class="footer">
+    <!-- <div class="footer">
         <div class="first-bar">
             <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -491,41 +471,11 @@
 
 
 
-    </div>
+    </div> -->
+    <footer data-th-replace="~{fragment/common :: footer
+    }"></footer>
 
-    <script>
-        const nextBtn = document.querySelector('.next-btn');
-        const prevBtn = document.querySelector('.pre-btn');
-        const productContainer = document.querySelector('.product-container');
-
-        nextBtn.addEventListener('click', () => {
-            productContainer.scrollBy({ left: 300, behavior: 'smooth' });
-        });
-
-        prevBtn.addEventListener('click', () => {
-            productContainer.scrollBy({ left: -300, behavior: 'smooth' });
-        });
-
-        // let currentIndex = 0;
-        // const images = document.querySelectorAll('.carousel img');
-        // const wrapper = document.querySelector('.carousel-wrapper');
-
-        // function moveToNextImage() {
-        //     currentIndex++;
-        //     if (currentIndex >= images.length) {
-        //         currentIndex = 0;  // Reset to the first image
-        //     }
-        //     updateCarouselPosition();
-        // }
-
-        // function updateCarouselPosition() {
-        //     const offset = -currentIndex * 100;
-        //     wrapper.style.transform = `translateX(${offset}%)`;
-        // }
-
-        // // Move to the next image every 3 seconds
-        // setInterval(moveToNextImage, 3000);
-    </script>
+    <script src="/JavaScript/admin.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,217 @@
+.navbar {
+    display: flex;
+    position: absolute;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #67308D;
+    height: 6.25rem;
+    width: 100%;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin-left: 1.87rem;
+    right: 12.5;
+}
+
+.navbar li a {
+    color: #EFEFEF;
+    text-decoration: none;
+    padding: 0.62rem;
+    font-size: 1.12rem;
+    font-weight: bolder;
+    border-radius: 0.312rem;
+}
+
+.lists {
+    transition: 0.2s ease;
+}
+
+.lists:hover {
+    scale: 1.1;
+}
+
+.lists-1 {
+    transition: 0.2s ease;
+}
+
+.lists-1:hover {
+    scale: 1.1;
+}
+
+.logo-img {
+    width: 8.12rem;
+    height: 5rem;
+}
+
+.navbar li a:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.search-btn {
+    position: relative;
+    top: 5px;
+    margin: 2px;
+    /* position: relative; */
+    /* left: 120px; */
+    /* top: 5px; */
+    background-color: #901bb7;
+    border: none;
+    font-size: 23px;
+    color: #ffffff;
+    width: 110px;
+    height: 40px;
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.search-btn:hover {
+    cursor: pointer;
+    background-color: #221737;
+    scale: 1.1;
+}
+
+::placeholder {
+    color: white;
+}
+
+.footer {
+    top: 400px;
+    position: relative;
+    background-color: #EFEFEF;
+    height: 700px;
+    width: 100%;
+}
+
+.first-bar {
+    font-size: 15px;
+    font-weight: 300;
+    position: absolute;
+    background-color: #1C1948;
+    height: 80px;
+    width: 100%;
+    color: #EFEFEF;
+}
+
+#content-1 {
+    left: 20px;
+    top: 10px;
+    position: absolute;
+}
+
+#content-2 {
+    top: 10px;
+    position: absolute;
+    margin-left: 500px;
+}
+
+#content-3 {
+    position: relative;
+    margin-left: 500px;
+}
+
+.span-footer {
+    display: block;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.second-bar {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 100px;
+    background-color: #827a7a38;
+    width: 100%;
+    height: 200px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 17px;
+    letter-spacing: 3px;
+}
+
+.about-us {
+    letter-spacing: 2px;
+    padding: 10px;
+    margin-left: 80px;
+}
+
+.help {
+    padding: 10px;
+    margin-left: 80px;
+}
+
+.policy {
+    padding: 10px;
+    margin-left: 80px;
+}
+
+.quick-links {
+    padding: 10px;
+    margin-left: 80px;
+}
+
+.third-bar {
+    display: flex;
+    width: 100%;
+    background-color: rgb(250, 247, 247);
+    flex-wrap: wrap;
+    position: absolute;
+    top: 300px;
+}
+
+.third-bar span {
+    color: rgb(142, 138, 138);
+    margin-top: 5px;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.woman {
+    margin-left: 20px;
+}
+
+.men {
+    margin-left: 90px;
+}
+
+.kids {
+    margin-left: 90px;
+}
+
+.footer-brands {
+    margin-left: 90px;
+}
+
+.skin-care {
+    margin-left: 90px;
+}
+
+.hair-care {
+    margin-left: 80px;
+}
+
+.fashin-endbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    top: 100px;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: #67308D;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.first-bar a {
+    top: 35px;
+    position: relative;
+    font-size: 24px;
+    margin: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
