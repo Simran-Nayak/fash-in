@@ -90,29 +90,6 @@ body {
     color: white;
 }
 
-.head-1 {
-    background: linear-gradient(90deg, #500725, #f3294b, #ff6a6a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.dropdown {
-    display: flex;
-    position: absolute;
-    background-color: #f5eef8;
-    height: 50px;
-    width: 100%;
-    top: 80px;
-}
-
-.dropdown ul li {
-    display: inline-block;
-    color: #000000;
-    margin-left: 70px;
-    font-size: 24px;
-    font-weight: bolder;
-}
 
 .product-category {
     display: inline-block;
