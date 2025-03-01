@@ -26,6 +26,8 @@ public class Plp {
     String plp(@RequestParam("category") String categoryId,Model model) {
         Category category = categoryRepository.findById(categoryId).orElseThrow();
         model.addAttribute("category", category);
+        List<Category> categories = categoryRepository.findAll();
+        model.addAttribute("categories", categories);
         return "customer/plp";
     }
 }
