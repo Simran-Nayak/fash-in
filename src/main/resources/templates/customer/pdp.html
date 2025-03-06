@@ -1,18 +1,22 @@
 `<!DOCTYPE html>
 <html lang="en">
 
-<head>
+<!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDP</title>
     <link rel="stylesheet" href="/style/pdp.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
+</head> -->
+
+<head data-th-replace="~{fragment/common :: head}"></head>
 
 <body>
+    <link rel="stylesheet" href="/style/pdp.css">
     <div class="nav-content">
-        <div class="navbar">
+        <nav data-th-replace="~{fragment/common :: nav}"></nav>
+        <!-- <div class="navbar">
             <div class="logo">
                 <a href="#"><img src="/images/logo.png" alt="logo" class="logo-img"></a>
             </div>
@@ -34,7 +38,7 @@
                 <li class="lists-1"><a href="#"> &#9825 Wishlists</a></li>
                 <li class="lists-1"><a href="http://localhost:1211/customer/cart">&#x1F6D2 Cart</a></li>
             </ul>
-        </div>
+        </div> -->
 
             <main>
                 <section class="product-container">
