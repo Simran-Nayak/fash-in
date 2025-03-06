@@ -20,6 +20,10 @@
                 <li class="lists" id="drop-1" data-th-each="category : ${categories}"><a class="nav-content"
                         data-th-href="|/customer/plp?category=${category.categoryId}|"
                         data-th-text="${category.categoryTitle}"></a>
+
+                        <li class="lists" id="drop-1" data-th-each="product : ${products}"><a class="nav-content"
+                            data-th-href="|/customer/pdp?category=${category.categoryId}|"
+                            data-th-text="${product.productTitle}"></a>
                 </li>
                 <li><button class="search-btn"><i class="fas fa-search icon"></i></button></li>
                 <li class="lists-1"><a href="/customer/sign-in">

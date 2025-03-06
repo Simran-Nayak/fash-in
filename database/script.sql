@@ -115,3 +115,8 @@ CREATE TABLE product (
     updated_by VARCHAR(255),
     FOREIGN KEY (category_id) REFERENCES category(id) ON DELETE CASCADE
 );
+
+CREATE TABLE widget (
+    widget_id VARCHAR(255) PRIMARY KEY,        
+    widget_name VARCHAR(255) NOT NULL, 
+);

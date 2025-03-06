@@ -1,18 +1,22 @@
 `<!DOCTYPE html>
 <html lang="en">
 
-<head>
+<!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDP</title>
     <link rel="stylesheet" href="/style/pdp.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
+</head> -->
+
+<head data-th-replace="~{fragment/common :: head}"></head>
 
 <body>
-    <div class="nav-content">
-        <div class="navbar">
+    <link rel="stylesheet" href="/style/pdp.css">
+
+     <div class="nav-content">
+        <!-- <div class="navbar">
             <div class="logo">
                 <a href="#"><img src="/images/logo.png" alt="logo" class="logo-img"></a>
             </div>
@@ -34,10 +38,14 @@
                 <li class="lists-1"><a href="#"> &#9825 Wishlists</a></li>
                 <li class="lists-1"><a href="http://localhost:1211/customer/cart">&#x1F6D2 Cart</a></li>
             </ul>
-        </div>
+        </div>   --> 
+        <nav data-th-replace="~{fragment/common :: nav}"></nav>
+
+        
 
             <main>
                 <section class="product-container">
+                    <h2 data-th-text="${product.productTitle}"></h2>
                     <div class="image-section">
                         <div class="thumbnails">
                             <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/f/e/fe26601CSMSS23_CSMSSRT5599_1.jpg?rnd=20200526195200&tr=w-512" alt="Thumbnail 1">
@@ -48,12 +56,13 @@
                     </div>
         
                     <div class="product-details">
-                        <p class="badge">BESTSELLER | EXPRESS SHIPPING</p>
+                        <h3 data-th-text="${product.productDescription}"></h3>
+                        <!-- <p class="badge">BESTSELLER | EXPRESS SHIPPING</p>
                         <h1>Campus Sutra Mens Tartan Plaid Button Up Shirt</h1>
                         <p class="rating">⭐ 3.7 <span>(55 Ratings)</span></p>
                         <p class="price">₹817 <span class="discount">57% Off</span></p>
                         <p class="mrp">MRP ₹1,899 Inclusive of all taxes</p>
-                        
+                         -->
                         <h3>Select Size</h3>
                         <div class="sizes">
                             <button>S</button>
@@ -72,7 +81,7 @@
                         <button class="apply">Apply</button>
                     </div>
 
-                    <div class="product-infomation">
+                    <!-- <div class="product-infomation">
                         <div class="info">
                             <h1>Product Information </h1>
                             <ul>
@@ -101,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> -->
             </main>
             <div class="know-your-product">
                 <h2>Know Your Product </h2>
@@ -149,7 +158,7 @@
                 <button class="read-reviews">Read all reviews</button>
             </div>
 
-            <div class="footer">
+            <!-- <div class="footer">
                 <div class="first-bar">
                     <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
                     <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -270,4 +279,7 @@
                 </div>
         </body>
         </html>
+         -->
         
+<footer data-th-replace="~{fragment/common :: footer
+}"></footer>
