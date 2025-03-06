@@ -18,9 +18,7 @@ public class PdpController {
     //     String customerPdp(){
     //         return"customer/pdp";
     //     } 
-
-  
-
+    
         @GetMapping("/customer/product/pdp")
     String getProductByProductId(@RequestParam("product") String productId,Model model) {
         Product product = productRepository.findById(productId).orElseThrow();

@@ -23,7 +23,6 @@ public class PlpController {
     //         return"customer/plp";
     //     } 
     
-
     @GetMapping("/customer/plp")
     String getProductByCatagoryId(@RequestParam("category") String categoryId,Model model) {
         Category category = categoryRepository.findById(categoryId).orElseThrow();
