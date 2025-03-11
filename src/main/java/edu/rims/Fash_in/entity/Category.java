@@ -16,6 +16,7 @@ public class Category extends Auditable {
 
     @Id
     @Column(name = "category_id", length = 255)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String categoryId;
 
     @Column(name = "category_title", nullable = false, length = 255)

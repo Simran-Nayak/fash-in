@@ -14,7 +14,7 @@
     <nav class="nav-content">
         <div class="navbar">
             <div class="logo">
-                <a href="#"><img src="/images/logo.png" alt="logo" class="logo-img"></a>
+                <a href="#"><img src="/images/logo.png" alt="logo" class="logo-img"></a>   
             </div>
             <ul class="unordered">
                 <li class="lists" id="drop-1" data-th-each="category : ${categories}"><a class="nav-content"
@@ -23,7 +23,7 @@
 
                         <li class="lists" id="drop-1" data-th-each="product : ${products}"><a class="nav-content"
                             data-th-href="|/customer/pdp?category=${category.categoryId}|"
-                            data-th-text="${product.productTitle}"></a>
+                            data-th-text="${product.productTitle}"></a> 
                 </li>
                 <li><button class="search-btn"><i class="fas fa-search icon"></i></button></li>
                 <li class="lists-1"><a href="/customer/sign-in">

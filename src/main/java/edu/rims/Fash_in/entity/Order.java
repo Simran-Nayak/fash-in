@@ -29,7 +29,7 @@ public class Order extends Auditable {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "order_status", nullable = false)   
-    private OrderStatus orderStatus = OrderStatus.PENDING;
+    private OrderStatus orderStatus = OrderStatus.CART;
 
     @OneToMany(mappedBy ="order")
     private List<OrderItem> orderItems;
