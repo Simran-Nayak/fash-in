@@ -11,15 +11,19 @@ import edu.rims.Fash_in.entity.Product;
 import edu.rims.Fash_in.repository.ProductRepository;
 
 @Controller
-public class AdminController {
+public class Productdash {
+    // @GetMapping("/customer/product")
+    // String cart() {
+    //     return "customer/product";
+    // }
 
-    @Autowired
+     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/customer/admin")
+    @GetMapping("/customer/product")
     String cart(Model model) {
         List<Product> products = productRepository.findAll();
         model.addAttribute("products", products);
-        return "customer/admin";
+        return "customer/product";
     }
 }

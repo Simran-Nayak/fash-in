@@ -11,9 +11,8 @@ import edu.rims.Fash_in.entity.Product;
 import edu.rims.Fash_in.repository.ProductRepository;
 
 @Controller
-public class AdminController {
-
-    @Autowired
+public class Category {
+     @Autowired
     private ProductRepository productRepository;
 
     @GetMapping("/customer/admin")

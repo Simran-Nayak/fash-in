@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style/admin.css">
+    <link rel="stylesheet" href="/style/product.css">
 </head>
 
 <body>
@@ -13,9 +13,9 @@
         <aside class="sidebar">
             <h1>Fashin Admin</h1>
             <ul>
-                <li><a href="#">Dashboard</a></li>
+                <li><a href="http://localhost:1211/customer/admin">Dashboard</a></li>
                 <li><a href="#">Orders</a></li>
-                <li><a href="http://localhost:1211/customer/product">Products</a></li>
+                <li><a href="#">Products</a></li>
                 <li><a href="#">Category</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Logout</a></li>
@@ -26,15 +26,16 @@
             <div class="stats">
                 <div class="card">Total Orders: <span>120</span></div>
                 <div class="card">Revenue: <span>$15,000</span></div>
-                <div class="card">Products: <span>350</span></div>
+                <div class="card">Category: <span>350</span></div>
                 <div class="card">Users: <span>500</span></div>
             </div>
             <h2>Manage Products</h2>
+            <button id="addproductbtn">Add Categories</button>
             <table>
                 <tablehead>
                     <tr>
-                        <th>ID</th>
-                        <th>Product</th>
+                        <th>Category ID</th>
+                        <th>Category</th>
                         <th>Price</th>
                         <th>Stock</th>
                         <th>Action</th>
