@@ -1,0 +1,39 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+.wishlist-container {
+    width: 80%;
+    margin: 5% auto;
+}
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0.2% solid #ddd;
+    padding: 2%;
+    margin-bottom: 2%;
+}
+.wishlist-item img {
+    width: 20%;
+    height: auto;
+}
+.item-details {
+    width: 70%;
+    text-align: left;
+}
+.remove-btn, .add-to-cart-btn {
+    padding: 1% 2%;
+    border: none;
+    cursor: pointer;
+}
+.remove-btn {
+    background-color: red;
+    color: white;
+}
+.add-to-cart-btn {
+    background-color: green;
+    color: white;
+}

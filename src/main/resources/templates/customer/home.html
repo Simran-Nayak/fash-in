@@ -38,6 +38,7 @@
     </div> -->
 
     <nav data-th-replace="~{fragment/common :: nav}"></nav>
+    <div data-th-replace="~{fragment/common :: #searchdiv}"></div>
     <div class="carousel-container">
         <div class="carousel">
             <img src="/images/slide-1.webp" alt="Image 1" class="img">
@@ -473,8 +474,33 @@
 
     </div> -->
     <footer data-th-replace="~{fragment/common :: footer}"></footer>
+    <script>
 
-    <script src="/JavaScript/admin.js"></script>
+        function homePage() {
+            const nextBtn = document.querySelector('.next-btn');
+            const prevBtn = document.querySelector('.pre-btn');
+            const productContainer = document.querySelector('.product-container');
+
+            nextBtn.addEventListener('click', () => {
+                productContainer.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+            prevBtn.addEventListener('click', () => {
+                productContainer.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+        }
+        homePage();
+
+        function searchswipe() {
+            let button = document.getElementById("parentbtn");
+            let searchDiv = document.getElementById("searchdiv");
+            button.addEventListener("click", () => {
+                searchDiv.style.display = "block";
+            });
+        }
+        searchswipe();
+
+    </script>
+
 </body>
 
-</html> 
+</html>

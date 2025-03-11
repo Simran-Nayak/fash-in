@@ -1,44 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<!-- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Landing Page</title>
-    <link rel="stylesheet" href="/style/plp.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head> -->
-
 <head data-th-replace="~{fragment/common :: head}"></head>
 
 <body>
     <link rel="stylesheet" href="/style/plp.css">
     <div class="nav-content">
-        <!-- <div class="navbar">
-            <div class="logo">
-                <a href="#"><img src="/images/logo.png" alt="logo" class="logo-img"></a>
-            </div>
-            <ul class="unordered">
-                <li class="lists" id="drop-1"><a class="nav-content" href="#">Woman</a></li>
-                <li class="lists"><a class="nav-content" href="#">Men</a></li>
-                <li class="lists"><a class="nav-content" href="#">Kids</a></li>
-                <li class="lists"><a class="nav-content" href="#">Skincare</a></li>
-                <li class="lists"><a class="nav-content" href="#">Hair</a></li>
-                <li class="lists"><a class="nav-content" href="#">Fragrance</a></li>
-                <li><button class="search-btn"><i class="fas fa-search icon"></i></button></li>
-                <li class="lists-1"><a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px"
-                            fill="#FFFFFF">
-                            <path
-                                d="M222-255q63-44 125-67.5T480-346q71 0 133.5 23.5T739-255q44-54 62.5-109T820-480q0-145-97.5-242.5T480-820q-145 0-242.5 97.5T140-480q0 61 19 116t63 109Zm257.81-195q-57.81 0-97.31-39.69-39.5-39.68-39.5-97.5 0-57.81 39.69-97.31 39.68-39.5 97.5-39.5 57.81 0 97.31 39.69 39.5 39.68 39.5 97.5 0 57.81-39.69 97.31-39.68 39.5-97.5 39.5Zm.66 370Q398-80 325-111.5t-127.5-86q-54.5-54.5-86-127.27Q80-397.53 80-480.27 80-563 111.5-635.5q31.5-72.5 86-127t127.27-86q72.76-31.5 155.5-31.5 82.73 0 155.23 31.5 72.5 31.5 127 86t86 127.03q31.5 72.53 31.5 155T848.5-325q-31.5 73-86 127.5t-127.03 86Q562.94-80 480.47-80Zm-.47-60q55 0 107.5-16T691-212q-51-36-104-55t-107-19q-54 0-107 19t-104 55q51 40 103.5 56T480-140Zm0-370q34 0 55.5-21.5T557-587q0-34-21.5-55.5T480-664q-34 0-55.5 21.5T403-587q0 34 21.5 55.5T480-510Zm0-77Zm0 374Z" />
-                        </svg>
-                        Account</a></li>
-                <li class="lists-1"><a href="#"> &#9825 Wishlists</a></li>
-                <li class="lists-1"><a href="http://localhost:1211/customer/cart">&#x1F6D2 Cart</a></li>
-            </ul>
-        </div> -->
+
         <nav data-th-replace="~{fragment/common :: nav}"></nav>
+        <div data-th-replace="~{fragment/common :: #searchdiv}"></div>
+
         <div class="container">
             <div class="filter">
                 <h2 class="head-filter">Filters</h2>
@@ -93,152 +64,67 @@
             </div>
             <hr>
         </div>
-        <div class="product">
+        <div class="product" data-th-if="${param.category != null}">
             <h1 class="product-head">Mens Top-Wears</h1>
             <div class="product-container">
                 <div class="product-card" data-th-each="product : ${category.products}">
-                 <a data-th-href="|/customer/product/pdp?product=${product. productId}|">
-                    <div class="product-image">
-                        <span class="discount-tag">50% off</span>
-                        <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/l/p/g/xl-mens-staylist-chex-shirt-dbex-original-imah3hj4wgjq98dz.jpeg?q=70"
-                            alt="" class="product-thumb">
-                        <button class="card-btn">Add to Wishlist</button>
-                    </div>
-                    <div class="product-info">
-                        <h2 class="product-brand"></h2>
-                        <p class="product-short-description" th:text="${product.productTitle}">A short line about the
-                            product</p>
-                        <span class="price">$20</span>
-                        <span class="actual-price">$40</span>
-                    </div>
-                 </a>
+                    <a data-th-href="|/customer/product/pdp?product=${product. productId}|">
+                        <div class="product-image">
+                            <span class="discount-tag">50% off</span>
+                            <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/l/p/g/xl-mens-staylist-chex-shirt-dbex-original-imah3hj4wgjq98dz.jpeg?q=70"
+                                alt="" class="product-thumb">
+                            <button class="card-btn">Add to Wishlist</button>
+                        </div>
+                        <div class="product-info">
+                            <h2 class="product-brand"></h2>
+                            <p class="product-short-description" th:text="${product.productTitle}">A short line about
+                                the
+                                product</p>
+                            <span class="price">$20</span>
+                            <span class="actual-price">$40</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product" data-th-if="${param.search != null}">
+            <h1 class="product-head">Mens Top-Wears</h1>
+            <div class="product-container">
+                <div class="product-card" data-th-each="product : ${products}">
+                    <a data-th-href="|/customer/product/pdp?product=${product.productId}|">
+                        <div class="product-image">
+                            <span class="discount-tag">50% off</span>
+                            <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/l/p/g/xl-mens-staylist-chex-shirt-dbex-original-imah3hj4wgjq98dz.jpeg?q=70"
+                                alt="" class="product-thumb">
+                            <button class="card-btn">Add to Wishlist</button>
+                        </div>
+                        <div class="product-info">
+                            <h2 class="product-brand"></h2>
+                            <p class="product-short-description" th:text="${product.productTitle}">A short line about
+                                the
+                                product</p>
+                            <span class="price">$20</span>
+                            <span class="actual-price">$40</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-     <!-- <div class="footer"> 
-        <div class="first-bar">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://wa.me/your_number" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <span class="span-footer" id="content-1">Get Connected with us:</span>
-            <div class="contact">
-                <span class="span-footer" id="content-2">For any Help you may call us at</span>
-                <span class="span-footer" id="content-3">7008905821 (Monday to Friday:10am - 9pm, Sunday:10am -
-                    1pm)</span>
-            </div>
+    <footer data-th-replace="~{fragment/common :: footer}"></footer>
 
-        </div>
-        <div class="second-bar">
-            <div class="about-us">
-                <h4 class="">About us</h4>
-                <span class="span-footer">Careers</span>
-            </div>
-            <div class="help">
-                <h4>Help</h4>
-                <span class="span-footer">Return Policy</span>
-                <span class="span-footer">Help Center</span>
-                <span class="span-footer">Terms and Condition</span>
-            </div>
-            <div class="policy">
-                <h4>Policy</h4>
-                <span class="span-footer">Sells on Fash-in</span>
-            </div>
-            <div class="quick-links">
-                <h4>Quick Links</h4>
-                <span class="span-footer">offers</span>
-                <span class="span-footer">sitemap</span>
-                <span class="span-footer">collections</span>
-                <div class="follow-us">
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-        <div class="third-bar">
-            <div class="woman">
-                <h4>Women</h4>
-                <span class="span-footer">Women Indian Wear</span>
-                <span class="span-footer">Women Western wear</span>
-                <span class="span-footer">Bags</span>
-                <span class="span-footer">Women Footwear</span>
-                <span class="span-footer">Women Sport's wear</span>
-                <span class="span-footer">Women watches</span>
-                <span class="span-footer">Fashion Accessories</span>
-                <span class="span-footer">Bags</span>
-                <span class="span-footer">Makeups</span>
-            </div>
-
-            <div class="men">
-                <h4>Men</h4>
-                <span class="span-footer">Topwear</span>
-                <span class="span-footer">Bottomwear</span>
-                <span class="span-footer">Ethnicwear</span>
-                <span class="span-footer">Mens Footwear</span>
-                <span class="span-footer">Mens Accessories</span>
-                <span class="span-footer">Innerwear and sleepwear</span>
-                <span class="span-footer">Men's Watches</span>
-                <span class="span-footer">Bags and Bagpack</span>
-                <span class="span-footer">Sports and fitness</span>
-            </div>
-
-            <div class="kids">
-                <h4>Kids</h4>
-                <span class="span-footer">kid Indianwear</span>
-                <span class="span-footer">Kids Westernwear</span>
-                <span class="span-footer">Kids Footwear</span>
-                <span class="span-footer">Kids Sleepwear</span>
-                <span class="span-footer">Some Comfortwears</span>
-                <span class="span-footer">Kids Sportswear</span>
-                <span class="span-footer">Kids Accessories</span>
-                <span class="span-footer">Kids Innerwear</span>
-                <span class="span-footer">All Weather</span>
-            </div>
-            <div class="footer-brands">
-                <h4>Top Brands</h4>
-                <span class="span-footer">Forever New</span>
-                <span class="span-footer">Cider</span>
-                <span class="span-footer">Skechers</span>
-                <span class="span-footer">Levis</span>
-                <span class="span-footer">Puma</span>
-                <span class="span-footer">Adidas</span>
-                <span class="span-footer">Fablestreet</span>
-                <span class="span-footer">Vero Moda</span>
-                <span class="span-footer">Louis Vuitton</span>
-            </div>
-            <div class="skin-care">
-                <h4>Skin Care</h4>
-                <span class="span-footer">Lip Care</span>
-                <span class="span-footer">Eye Care</span>
-                <span class="span-footer">Face Tool</span>
-                <span class="span-footer">Mosturizer</span>
-                <span class="span-footer">Facial Kits and Bleaches</span>
-                <span class="span-footer">Toner and face Mists</span>
-                <span class="span-footer">Masks</span>
-                <span class="span-footer">Under eye Serums</span>
-                <span class="span-footer">Essential Oil</span>
-            </div>
-            <div class="hair-care">
-                <h4>Hair Care</h4>
-                <span class="span-footer">Complete Hair Accessories Collection</span>
-                <span class="span-footer">Hair Color</span>
-                <span class="span-footer">Hair Clips and Bands</span>
-                <span class="span-footer">Hair Extensions</span>
-                <span class="span-footer">Complete hair styling collection</span>
-                <span class="span-footer">Toner and face Mists</span>
-                <span class="span-footer">Complete Shampoo and Conditioner</span>
-                <span class="span-footer">Styling creams gels and waXes</span>
-                <span class="span-footer">Hair and Scalp Treatment oils</span>
-            </div>
-            <div class="fashin-endbar">
-                <h5>ⓒ 2025 Fash-in LTD.RIMS</h5>
-            </div>
-        </div>
+    <script>
+        function searchswipe() {
+            let button = document.getElementById("parentbtn");
+            let searchDiv = document.getElementById("searchdiv");
+            button.addEventListener("click", () => {
+                searchDiv.style.display = "block";
+            });
+        }
+        searchswipe();
+    </script>
 </body>
 
-</html>0....................................................00000000000000000000000000000000 -->
-
-<footer data-th-replace="~{fragment/common :: footer
-}"></footer>
+</html>
