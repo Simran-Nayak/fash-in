@@ -21,11 +21,10 @@
                         data-th-href="|/customer/plp?category=${category.categoryId}|"
                         data-th-text="${category.categoryTitle}"></a>
 
-                        <li class="lists" id="drop-1" data-th-each="product : ${products}"><a class="nav-content"
-                            data-th-href="|/customer/pdp?category=${category.categoryId}|"
-                            data-th-text="${product.productTitle}"></a>
                 </li>
-                <li><button class="search-btn"><i class="fas fa-search icon"></i></button></li>
+                <li class="pntbtn">
+                    <button id="parentbtn"><i class="fas fa-search"></i></button>
+                </li>
                 <li class="lists-1"><a href="/customer/sign-in">
                         <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px"
                             fill="#FFFFFF">
@@ -38,6 +37,12 @@
             </ul>
         </div>
     </nav>
+
+    <form id="searchdiv" action="/customer/search">
+        <input type="text" id="searchinput" name="search" placeholder="Search your product">
+        <button id="searchbtn">Search</button>
+    </form>
+
     <footer class="footer">
         <div class="first-bar">
             <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -159,6 +164,17 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let button = document.getElementById("parentbtn");
+            let searchDiv = document.getElementById("searchdiv");
+
+            button.addEventListener("click", () => {
+                searchDiv.style.display = "block";
+            });
+        });
+    </script>
 </body>
 
 </html>

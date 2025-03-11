@@ -1,3 +1,8 @@
+body {
+    height: 100vh;
+    width: 100%;
+}
+
 .navbar {
     display: flex;
     position: absolute;
@@ -50,13 +55,19 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.search-btn {
+#parentbtn:hover {
+    cursor: pointer;
+    background-color: #221737;
+    scale: 1.1;
+}
+
+#parentbtn {
+    background: none;
+    border: none;
+    color: #EFEFEF;
     position: relative;
     top: 5px;
     margin: 2px;
-    /* position: relative; */
-    /* left: 120px; */
-    /* top: 5px; */
     background-color: #901bb7;
     border: none;
     font-size: 23px;
@@ -67,10 +78,19 @@
     transition: 0.3s ease;
 }
 
-.search-btn:hover {
-    cursor: pointer;
-    background-color: #221737;
-    scale: 1.1;
+#inp {
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#subbtn {
+    margin-left: 35%;
+    width: 100px;
+    height: 40px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
 }
 
 ::placeholder {
@@ -214,4 +234,41 @@
     margin: 10px;
     color: #ffffff;
     text-decoration: none;
+}
+
+#searchinput {
+    position: absolute;
+    width: 400px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    left:60%;
+    top:13.5%;
+    z-index:999;
+    background-color:#EFEFEF;
+}
+
+#searchinput::-webkit-input-placeholder {
+    color:grey;
+    letter-spacing: 4px;
+    font-size:16px;
+}
+
+#searchbtn{
+    position:absolute;
+    padding:10px;
+    border: none;
+    width:80px;
+    border-radius: 10px;
+    left:81%;
+    top:13.8%;
+    z-index:999;
+}
+
+#searchbtn:hover{
+    cursor: pointer;
+}
+
+#searchdiv{
+    display:none;
 }
