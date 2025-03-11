@@ -59,5 +59,10 @@ public class PlpController {
         
         return "customer/plp";
     }
+
+    @GetMapping ("/product/search")
+    String searchProduct(){
+        return "customer/plp";
+    }
 }
     
