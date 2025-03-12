@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequestMapping("/customer")
-public class SignUp {
+public class SignUpController {
     @Autowired
     private UserRepository userRepository;
 

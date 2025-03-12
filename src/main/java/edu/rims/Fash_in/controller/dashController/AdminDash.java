@@ -1,4 +1,4 @@
-package edu.rims.Fash_in.controller;
+package edu.rims.Fash_in.controller.dashController;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import edu.rims.Fash_in.entity.Product;
 import edu.rims.Fash_in.repository.ProductRepository;
 
 @Controller
-public class AdminController {
+public class AdminDash {
 
     @Autowired
     private ProductRepository productRepository;
