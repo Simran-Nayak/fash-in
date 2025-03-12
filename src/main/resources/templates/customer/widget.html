@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style/product.css">
+    <link rel="stylesheet" href="/style/widget.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -14,7 +14,8 @@
         <aside class="sidebar">
             <h1>Fashin Admin</h1>
             <ul>
-                <li><a href="http://localhost:1211/customer/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="http://localhost:1211/customer/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
                 <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
                 <li><a href="http://localhost:1211/customer/product"><i class="fas fa-box"></i> Products</a></li>
                 <li><a href="http://localhost:1211/customer/category"><i class="fas fa-tags"></i> Category</a></li>
@@ -24,33 +25,19 @@
             </ul>
         </aside>
         <main class="main-content">
-            <h1>Dashboard</h1>
-            <div class="stats">
-                <div class="card">Total Orders: <span>120</span></div>
-                <div class="card">Revenue: <span>$15,000</span></div>
-                <div class="card">Category: <span>350</span></div>
-                <div class="card">Users: <span>500</span></div>
-            </div>
-            <h2>Manage Products</h2>
-            <button id="addproductbtn">Add Categories</button>
+            <h1>Widget</h1>
             <table>
                 <tablehead>
                     <tr>
-                        <th>Category ID</th>
-                        <th>Category</th>
-                        <th>Images</th>
-                        <!-- <th>Price</th> -->
-                        <th>Stock</th>
+                        <th>Widget Name</th>
+                        <th>Widget Status</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tablebody>
-                        <tr data-th-each="product:${products}">
-                            <td data-th-text="${product.productId}"></td>
-                            <td data-th-text="${product.productTitle}"></td>
-                            <td><img data-th-src="${product.productImageUrl}" alt="Category Image" width="50"></td>
-                            <!-- <td class="td" data-th-text="${product.productPrice}">$20</td> -->
-                            <td class="td" data-th-text="${product.productStockQuantity}">65</td>
+                        <tr>
+                            <td></td>
+                            <td></td>
                             <td class="td">
                                 <button class="button" id="editbutton1">Edit</button>
                                 <button class="button">Delete</button>
@@ -112,24 +99,24 @@
         </div>
     </div>
 
-<script>
-    let displayDiv=document.getElementById("popupOverlay");
-    let closeButton=document.getElementById("closebtn");
-    let submitButton=document.getElementById("submit-button");
-    let button=document.getElementById("addproductbtn");
-    button.addEventListener('click',()=>{
-        displayDiv.style.display="flex";
-    });
+    <script>
+        let displayDiv = document.getElementById("popupOverlay");
+        let closeButton = document.getElementById("closebtn");
+        let submitButton = document.getElementById("submit-button");
+        let button = document.getElementById("addproductbtn");
+        button.addEventListener('click', () => {
+            displayDiv.style.display = "flex";
+        });
 
-    closeButton.addEventListener('click',()=>{
-        displayDiv.style.display="none";
-    });
+        closeButton.addEventListener('click', () => {
+            displayDiv.style.display = "none";
+        });
 
-    submitButton.addEventListener('click',()=>{
-        displayDiv.style.display="none";
-        alert("Product added successfully!");
-    })
-</script>
+        submitButton.addEventListener('click', () => {
+            displayDiv.style.display = "none";
+            alert("Product added successfully!");
+        })
+    </script>
 
 
 </body>

@@ -154,3 +154,63 @@ label{
     top:36%;
     cursor:pointer;
 }
+
+.popup-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(5px); 
+    z-index: 1000;
+}
+
+.popup-overlay h2{
+    margin-top:-10px;
+    margin-bottom:15%;
+}
+
+.popup {
+    position:absolute;
+    top: 8%;
+    left: 35%;
+    background: white;
+    padding: 60px;
+    border-radius: 10px;
+    width:350px;
+    height:500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.popup input, .popup textarea {
+    width: 100%;
+    padding:10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.popup button {
+    position:relative;
+    background: #28a745;
+    color: white;
+    top:20px;
+    margin:10px;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.popup button:hover {
+    background: #218838;
+}
+.close-btn {
+    background: red;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}

@@ -1,4 +1,4 @@
-package edu.rims.Fash_in.controller;
+package edu.rims.Fash_in.controller.dashController;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -23,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 @Controller
-public class AdminController {
+public class AdminDash {
 
     @Autowired
     private ProductRepository productRepository;
