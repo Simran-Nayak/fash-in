@@ -44,8 +44,7 @@ public class AdminDash {
             FileOutputStream fileOutputStream = new FileOutputStream(fileName);
             fileOutputStream.write(file.getBytes());
             fileOutputStream.close();
-            product.setProductImageUrl(fileName);
-            
+            product.setProductImageUrl(fileName);  
         }
         productRepository.save(product);
         return "redirect:/customer/product";
