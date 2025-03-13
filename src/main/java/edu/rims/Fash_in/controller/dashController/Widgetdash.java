@@ -11,10 +11,10 @@ public class Widgetdash {
     String widget() {
         return "customer/widget";
     }
-}
-@GetMapping ("/widget")
-public String getWidgets (Model model){
-    model.addAttribute(attributeName:"widgets", widgetRepository.findAll());
-    return "customer/widget";
+// }
+// // @GetMapping ("/widget")
+// public String getWidgets (Model model){
+//     model.addAttribute(attributeName:"widgets", widgetRepository.findAll());
+//     return "customer/widget";
 }
 
