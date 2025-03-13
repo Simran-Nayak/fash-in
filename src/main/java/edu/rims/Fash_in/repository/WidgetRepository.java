@@ -10,6 +10,5 @@ import edu.rims.Fash_in.entity.Widget;
 
 public interface WidgetRepository extends JpaRepository<Widget, String> {
     // List<Widget> findByWidgetStatus(WidgetStatus widgetStatus, Sort sort);
-
     // Object findByWidgetStatus(WidgetStatus active, org.springframework.data.domain.Sort by); 
 } 
