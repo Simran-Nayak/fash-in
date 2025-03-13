@@ -1,3 +1,4 @@
+
 package edu.rims.Fash_in.controller.dashController;
 
 import java.io.FileInputStream;
@@ -25,10 +26,6 @@ import edu.rims.Fash_in.repository.ProductRepository;
 
 @Controller
 public class ProductDash {
-    // @GetMapping("/customer/product")
-    // String cart() {
-    //     return "customer/product";
-    // }
 
      @Autowired
     private ProductRepository productRepository;
@@ -76,7 +73,7 @@ public class ProductDash {
     }
 
        @PostMapping("/product")
-    public String signUp(@ModelAttribute Product product) {
+        public String signUp(@ModelAttribute Product product) {
         product.setCreatedDate(LocalDateTime.now()); 
         product.setUpdatedDate(LocalDateTime.now());
         product.setCreatedBy("user");  
@@ -85,8 +82,16 @@ public class ProductDash {
         productRepository.save(product);
         return "redirect:/customer/product";   
 
-        
     }
-
-
 }
+
+    //    @PostMapping("/product")
+    // public String signUp(@ModelAttribute Product product) {
+    //     product.setCreatedDate(LocalDateTime.now()); 
+    //     product.setUpdatedDate(LocalDateTime.now());
+    //     product.setCreatedBy("user");  
+    //     product.setUpdatedBy("user"); 
+    //     product.setProductImageUrl("");
+    //     productRepository.save(product);
+    //     return "redirect:/customer/product";   
+    // }

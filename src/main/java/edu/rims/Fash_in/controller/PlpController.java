@@ -42,8 +42,8 @@ public class PlpController {
     // String getProductByCatagorySearch(@RequestParam("search") String search,Model model) {
     //     List<Product> products = productRepository.findByProductTitleContainingIgnoreCaseAndProductStatus(search, ProductStatus.ACTIVE);
     //     model.addAttribute("products", products);
-    //     // List<Category> categories = categoryRepository.findAll();
-    //     // model.addAttribute("categories", categories);
+    //     List<Category> categories = categoryRepository.findAll();
+    //     model.addAttribute("categories", categories);
     //     System.out.println(products.size());
     //     return "customer/plp";
     // }
