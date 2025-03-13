@@ -69,6 +69,70 @@
             <button id="submit-button">Submit</button>
             <button class="close-btn" id="closebtn">Close</button>
         </div>
+    </div>
+<div class="addWidgetContainer">
+    <form action="/customer/admin/add" method="post"
+    <input type="text" name="=widgetName" placeholder="Enter a widget name..."
+    data-th-value ="${widget != null ? widget.widgetName :''}">
+    <input type="text" placeholder="sequence id" name="sequence" data-th-value="${widget!= null ? widget.sequence:''}">
+    <input type="submit">
+</form>
+</div>
+
+<div class="addProductWidgetBtnContainer">
+    <button class="addProductWidgetBtn" onclick="openModel()">Add product to widget</button>
+</div>
+
+<table>
+    <thread>
+        <tr>
+            <th> Widget Name</th>
+            <th> Widget Id</th>
+            <th> sequence</th>
+            <th> Widget Status</th>
+            <th>Actions</th>
+        </tr>
+    </thread>
+    <tbody id="categoryTable">
+        <tr data-th-each="widget: ${widgets}">
+            <td data-th-text="${widget.widgetName}"></td>
+            <td data-th-text="${widget.widgetId}"></td>
+            <td data-th-text="${widget.sequence}"></td>
+            <td data-th-text="${widget.widgetStatus}">
+                data-th-class="${widget.widgetStatus.name()=='ACTIVE'?'clr-yellow': 'clr-red'}"></td>
+             <td>
+                <a data-th-href="|/customer/widget/edit?id=${widget.widgetId}|"class="action-link"> <i
+                class="fa-solid fa-pen-to-square"></i></a>
+                <a data-th-href="|/customer/widget/remove?id=${widget.widgetId}|" class="action-link"><i
+                class="fa-solid fa-trash"></i></a>
+                <a data-th-href="|/customer/widget/products?id=${widget.widgetId}|"title="show products"
+                style="all:unset; cursor: pointer;"><i class="fas fa-box-open"></i> </a>
+             </td>
+        </tr>
+    </tbody>
+</table>
+<!--Modal-->
+<div class = "widgetModel d-none">
+    <div class="modal-box">
+        <div class ="modal-header">
+            <h2>Add product to widget</h2>
+        </div>
+        <hr>
+        <div class="modal-body">
+            <form action="/customer/widget/product/add" method="post" enctype="multipart/form-data"
+            id="widgetProductForm">
+        <p>Note: Download template <a href="/file/widget-template.csv" download>click the link</a></p>
+    <input type ="file" accept="text/csv" name="file">
+<div class="text-center">
+    <input type="submit" value="upload">
+     </div>
+      </form>
+        </div>
+<div class="cross-icon">
+    <button onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+</div>
+    </div>
+</div>
     </form>
 
     <script>

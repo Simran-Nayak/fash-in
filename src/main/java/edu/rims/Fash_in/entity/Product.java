@@ -16,6 +16,7 @@ public class Product extends Auditable {
 
     @Id
     @Column(name = "product_id")
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String productId;
 
     @ManyToOne
