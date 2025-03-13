@@ -14,7 +14,7 @@
     <nav class="nav-content">
         <div class="navbar">
             <div class="logo">
-                <a href="#"><img src="/images/logo.png" alt="logo" class="logo-img"></a>   
+                <a href="#"><img src="/images/logo.png" alt="logo" class="logo-img"></a>
             </div>
             <ul class="unordered">
                 <li class="lists" id="drop-1" data-th-each="category : ${categories}"><a class="nav-content"
@@ -43,17 +43,30 @@
         <button id="searchbtn">Search</button>
     </form>
 
-    <!-- <aside class="sidebar">
-        <h1>Fashin Admin</h1>
-        <ul>
-            <li><a href="http://localhost:1211/customer/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
-            <li><a href="http://localhost:1211/customer/product"><i class="fas fa-box"></i> Products</a></li>
-            <li><a href="http://localhost:1211/customer/category"><i class="fas fa-tags"></i> Category</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
-    </aside> -->
+    <th:block th:fragment="sidebar">
+        <aside class="sidebar">
+            <h1>Fashin Admin</h1>
+            <ul>
+                <li><a href="http://localhost:1211/customer/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li><a href="http://localhost:1211/customer/product"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="http://localhost:1211/customer/category"><i class="fas fa-tags"></i> Category</a></li>
+                <li><a href="http://localhost:1211/customer/widget"><i class="fas fa-tags"></i> Widget</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
+    </th:block>
+
+    <th:block th:fragment="admin-cards">
+        <div class="stats">
+            <div class="card">Total Orders: <span>120</span></div>
+            <div class="card">Revenue: <span>$15,000</span></div>
+            <div class="card">Products: <span>350</span></div>
+            <div class="card">Users: <span>500</span></div>
+        </div>
+    </th:block>
 
     <footer class="footer">
         <div class="first-bar">

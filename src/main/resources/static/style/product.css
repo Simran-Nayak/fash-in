@@ -16,7 +16,7 @@ body {
     height: 100vh;
 }
 
-h1{
+h1 {
     text-align: center;
     white-space: nowrap;
 }
@@ -27,20 +27,20 @@ h1{
 }
 
 .sidebar ul li {
-    position:relative;
-    padding: 20% 0%;
-    margin-right:10%;
+    position: relative;
+    padding: 19% 0%;
+    margin-right: 8%;
 }
 
 .sidebar ul li a {
     color: white;
     text-decoration: none;
     display: block;
-    transition:0.5s ease;
+    transition: 0.5s ease;
 }
 
-.sidebar ul li a:hover{
-    color:#b15dee;
+.sidebar ul li a:hover {
+    color: #b15dee;
 }
 
 .main-content {
@@ -51,13 +51,14 @@ h1{
 .stats {
     display: flex;
     gap: 2%;
+    flex-wrap: wrap;
 }
 
 .card {
     background: #f4f4f4;
     padding: 5%;
-    border-radius: 5%;
-    width: 15%;
+    border-radius: 0.625rem;
+    width: 13.5%;
     text-align: center;
 }
 
@@ -69,8 +70,8 @@ table {
 }
 
 table, th, td {
-    border: 1px solid #ddd;
-    padding: 1%;
+    border: 0.063rem solid #ddd;
+    padding: 1rem;
     text-align: left;
     word-wrap: break-word;
 }
@@ -84,133 +85,139 @@ th {
     background: #6b2e96;
     color: white;
     border: none;
-    padding: 6% 11%;
+    padding: 5% 10%;
     cursor: pointer;
-    border-radius:5px;
-    margin-right:15px;
+    border-radius: 0.313rem;
+    margin-right: 1rem;
 }
 
 .button:hover {
     background: #4b1c6d;
-    color:#FB641B;
-}
-#form{
-    display:none;
+    color: #FB641B;
 }
 
-#container{
-    display:flex;
+#form {
+    display: none;
+}
+
+#container {
+    display: flex;
     flex-direction: column;
-    position:absolute;
-    left:40%;
-    top:20%;
-    background-color:rgba(0,0,0,0.8);
-    height:70%;
-    width:28%;
+    position: fixed;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 70vh;
+    width: 30vw;
     flex-wrap: wrap;
-    justify-content:center;
-    align-items:center;
-    gap:20px;
-    border-radius:10px;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    border-radius: 0.625rem;
 }
 
-#container div{
-    display:flex;
+#container div {
+    display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-label{
-    color:#EFEFEF;
-    font-size:24px;
+label {
+    color: #EFEFEF;
+    font-size: 1.5rem;
 }
 
-.inputbox{
-    display:block;
-    margin-top:5px;
-    margin-bottom:1rem;
-    position:relative;
-    width:19rem;
-    height:2.5rem;
-    border-radius:10px;
+.inputbox {
+    display: block;
+    margin-top: 0.313rem;
+    margin-bottom: 1rem;
+    position: relative;
+    width: 90%;
+    height: 2.5rem;
+    border-radius: 0.625rem;
 }
 
-#button1{
-   width:8rem;
-   height:2.5rem;
-   border-radius:5px;
-   cursor: pointer;
+#button1 {
+    width: 50%;
+    height: 2.5rem;
+    border-radius: 0.313rem;
+    cursor: pointer;
 }
 
-#addproductbtn{
-    position:absolute;
-    background-color:#6b2e96;
-    color:#EFEFEF;
-    font-size:18px;
-    width:200px;
-    height:40px;
-    border-radius:5px;
-    right:2%;
-    top:36%;
-    cursor:pointer;
+#addproductbtn {
+    position: absolute;
+    background-color: #6b2e96;
+    color: #EFEFEF;
+    font-size: 1rem;
+    width: 12.5rem;
+    height: 2.5rem;
+    border-radius: 0.313rem;
+    right: 2%;
+    top: 36%;
+    cursor: pointer;
 }
 
 .popup-overlay {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    backdrop-filter: blur(5px); 
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
     z-index: 1000;
 }
 
-.popup-overlay h2{
-    margin-top:-10px;
-    margin-bottom:15%;
+.popup-overlay h2 {
+    margin-top: -0.625rem;
+    margin-bottom: 15%;
 }
 
 .popup {
-    position:absolute;
-    top: 8%;
-    left: 35%;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     background: white;
-    padding: 60px;
-    border-radius: 10px;
-    width:350px;
-    height:500px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+    border-radius: 0.625rem;
+    width: 90%;
+    max-width: 21.875rem;
+    height: 31.25rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
     text-align: center;
 }
+
 .popup input, .popup textarea {
     width: 100%;
-    padding:10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 0.625rem;
+    margin: 0.313rem 0;
+    border: 0.063rem solid #ccc;
+    border-radius: 0.313rem;
 }
+
 .popup button {
-    position:relative;
     background: #28a745;
     color: white;
-    top:20px;
-    margin:10px;
-    padding: 12px 35px;
+    padding: 0.75rem 2.188rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     cursor: pointer;
+    margin-top: 0.625rem;
 }
+
 .popup button:hover {
     background: #218838;
 }
+
 .close-btn {
     background: red;
     color: white;
-    padding: 5px;
+    padding: 0.313rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 0.625rem;
 }

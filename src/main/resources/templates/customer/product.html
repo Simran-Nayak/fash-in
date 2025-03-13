@@ -11,30 +11,15 @@
 
 <body>
     <div class="admin-container">
-        <aside class="sidebar">
-            <h1>Fashin Admin</h1>
-            <ul>
-                <li><a href="http://localhost:1211/customer/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
-                <li><a href="http://localhost:1211/customer/product"><i class="fas fa-box"></i> Products</a></li>
-                <li><a href="http://localhost:1211/customer/category"><i class="fas fa-tags"></i> Category</a></li>
-                <li><a href="http://localhost:1211/customer/widget"><i class="fas fa-tags"></i> Widget</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
-        </aside>
+        <div data-th-replace="~{'fragment/common' :: sidebar}"></div>
+
         <main class="main-content">
             <h1>Dashboard</h1>
-            <div class="stats">
-                <div class="card">Total Orders: <span>120</span></div>
-                <div class="card">Revenue: <span>$15,000</span></div>
-                <div class="card">Products: <span>350</span></div>
-                <div class="card">Users: <span>500</span></div>
-            </div>
+            <div data-th-replace="~{'fragment/common' :: admin-cards}"></div>
             <h2>Manage Products</h2>
             <button id="addproductbtn">Add Product</button>
             <table>
-                <tablehead>
+                <thead>
                     <tr>
                         <th>ID</th>
                         <th>Product</th>
@@ -43,53 +28,26 @@
                         <th>Stock</th>
                         <th>Action</th>
                     </tr>
-                    </thead>
-                    <tablebody>
-                        <tr data-th-each="product:${products}">
-                            <td data-th-text="${product.productId}"></td>
-                            <td data-th-text="${product.productTitle}"></td>
-                            <td><img data-th-src="${product.productImageUrl}" alt="Product Image" width="50"></td>
-                            <td class="td" data-th-text="${product.productPrice}">$20</td>
-                            <td class="td" data-th-text="${product.productStockQuantity}">65</td>
-                            <td class="td">
-                                <button class="button" id="editbutton1">Edit</button>
-                                <button class="button">Delete</button>
-                            </td>
-                        </tr>
-                    </tablebody>
+                </thead>
+                <tbody>
+                    <tr data-th-each="product:${products}">
+                        <td data-th-text="${product.productId}"></td>
+                        <td data-th-text="${product.productTitle}"></td>
+                        <td><img data-th-src="${product.productImageUrl}" alt="Product Image" width="50"></td>
+                        <td class="td" data-th-text="${product.productPrice}">$20</td>
+                        <td class="td" data-th-text="${product.productStockQuantity}">65</td>
+                        <td class="td">
+                            <button class="button" id="editbutton1">Edit</button>
+                            <button class="button">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+
             </table>
         </main>
     </div>
 
-    <form id="form" method="post" action="/customer/product" enctype="multipart/form-data">
-        <div id="container">
-            <div class="addCategory">
-                <label for="addCategory">Add Category</label>
-                <input class="inputbox" type="text" placeholder="Enter category">
-            </div>
-
-            <div class="addProduct">
-                <label for="addProduct">Add Product</label>
-                <input class="inputbox" type="text" placeholder="Add your Product">
-            </div>
-
-            <div class="ProductImage">
-                <label for="ProductImage">Product Image</label>
-                <input class="inputbox" type="file" placeholder="Product Image">
-            </div>
-
-            <div class="ProductDescription">
-                <label for="ProductDescription">Product Description</label>
-                <input class="inputbox" type="text" placeholder="Product Description">
-            </div>
-            <div>
-                <button id="button1">Submit</button>
-            </div>
-        </div>
-        </div>
-    </form>
-
-    <div class="popup-overlay" id="popupOverlay">
+    <form class="popup-overlay" id="popupOverlay">
         <div class="popup">
             <h2>Add Product</h2>
             <form action="/product" method="post">
@@ -98,6 +56,9 @@
 
                 <label for="productPrice">Category Price:</label>
                 <input type="text" placeholder="Category Price"  name="productPrice">
+
+            <label for="productId">Product Price:</label>
+            <input type="text" placeholder="Category Price">
 
                 <label for="productDescription">Product Description:</label>
                 <textarea placeholder="Product Description" name="productDescription"></textarea>
@@ -113,26 +74,26 @@
                 <button class="close-btn" id="closebtn">Close</button>
             </form>
         </div>
-    </div>
+    </form>
 
-<script>
-    let displayDiv=document.getElementById("popupOverlay");
-    let closeButton=document.getElementById("closebtn");
-    let submitButton=document.getElementById("submit-button");
-    let button=document.getElementById("addproductbtn");
-    button.addEventListener('click',()=>{
-        displayDiv.style.display="block";
-    });
+    <script>
+        let displayDiv = document.getElementById("popupOverlay");
+        let closeButton = document.getElementById("closebtn");
+        let submitButton = document.getElementById("submit-button");
+        let button = document.getElementById("addproductbtn");
+        button.addEventListener('click', () => {
+            displayDiv.style.display = "block";
+        });
 
-    closeButton.addEventListener('click',()=>{
-        displayDiv.style.display="none";
-    });
+        closeButton.addEventListener('click', () => {
+            displayDiv.style.display = "none";
+        });
 
-    //submitButton.addEventListener('click',()=>{
-      //  displayDiv.style.display="none";
-      //  alert("Product added successfully!");
-    //})
-</script>
+        submitButton.addEventListener('click', () => {
+            displayDiv.style.display = "none";
+            alert("Product added successfully!");
+        })
+    </script>
 </body>
 
 </html>

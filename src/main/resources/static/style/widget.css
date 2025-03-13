@@ -16,7 +16,7 @@ body {
     height: 100vh;
 }
 
-h1{
+h1 {
     text-align: center;
     white-space: nowrap;
 }
@@ -27,20 +27,20 @@ h1{
 }
 
 .sidebar ul li {
-    position:relative;
-    padding: 20% 0%;
-    margin-right:10%;
+    position: relative;
+    padding: 20% 0;
+    margin-right: 10%;
 }
 
 .sidebar ul li a {
     color: white;
     text-decoration: none;
     display: block;
-    transition:0.5s ease;
+    transition: 0.5s ease;
 }
 
-.sidebar ul li a:hover{
-    color:#b15dee;
+.sidebar ul li a:hover {
+    color: #b15dee;
 }
 
 .main-content {
@@ -69,7 +69,7 @@ table {
 }
 
 table, th, td {
-    border: 1px solid #ddd;
+    border: 0.1rem solid #ddd;
     padding: 1%;
     text-align: left;
     word-wrap: break-word;
@@ -86,73 +86,74 @@ th {
     border: none;
     padding: 6% 11%;
     cursor: pointer;
-    border-radius:5px;
-    margin-right:15px;
+    border-radius: 5px;
+    margin-right: 15px;
 }
 
 .button:hover {
     background: #4b1c6d;
-    color:#FB641B;
-}
-#form{
-    display:none;
+    color: #FB641B;
 }
 
-#container{
-    display:flex;
+#form {
+    display: none;
+}
+
+#container {
+    display: flex;
     flex-direction: column;
-    position:absolute;
-    left:40%;
-    top:20%;
-    background-color:rgba(0,0,0,0.8);
-    height:70%;
-    width:28%;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    background-color: rgba(0,0,0,0.8);
+    height: 70%;
+    width: 28%;
     flex-wrap: wrap;
-    justify-content:center;
-    align-items:center;
-    gap:20px;
-    border-radius:10px;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 1rem;
 }
 
-#container div{
-    display:flex;
+#container div {
+    display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-label{
-    color:#EFEFEF;
-    font-size:24px;
+label {
+    color: #EFEFEF;
+    font-size: 1.5rem;
 }
 
-.inputbox{
-    display:block;
-    margin-top:5px;
-    margin-bottom:1rem;
-    position:relative;
-    width:19rem;
-    height:2.5rem;
-    border-radius:10px;
+.inputbox {
+    display: block;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    width: 19rem;
+    height: 2.5rem;
+    border-radius: 0.6rem;
 }
 
-#button1{
-   width:8rem;
-   height:2.5rem;
-   border-radius:5px;
+#button1 {
+   width: 8rem;
+   height: 2.5rem;
+   border-radius: 0.5rem;
    cursor: pointer;
 }
 
-#addproductbtn{
-    position:absolute;
-    background-color:#6b2e96;
-    color:#EFEFEF;
-    font-size:18px;
-    width:200px;
-    height:40px;
-    border-radius:5px;
-    right:2%;
-    top:36%;
-    cursor:pointer;
+#addproductbtn {
+    position: absolute;
+    background-color: #6b2e96;
+    color: #EFEFEF;
+    font-size: 1.2rem;
+    width: 12.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    right: 2%;
+    top: 36%;
+    cursor: pointer;
 }
 
 .popup-overlay {
@@ -163,51 +164,56 @@ label{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); 
-    backdrop-filter: blur(5px); 
+    backdrop-filter: blur(0.3rem);
     z-index: 1000;
 }
 
-.popup-overlay h2{
-    margin-top:-10px;
-    margin-bottom:15%;
+.popup-overlay h2 {
+    margin-top: -0.6rem;
+    margin-bottom: 2rem;
 }
 
 .popup {
     background: white;
-    padding: 60px;
-    border-radius: 10px;
-    width:350px;
-    height:500px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 4rem;
+    border-radius: 1rem;
+    width: 80%;
+    max-width: 22rem;
+    height: 70vh;
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
     text-align: center;
 }
+
 .popup input, .popup textarea {
     width: 100%;
-    padding:10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 0.6rem;
+    margin: 0.3rem 0;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.3rem;
 }
+
 .popup button {
-    position:relative;
+    position: relative;
     background: #28a745;
     color: white;
-    top:20px;
-    margin:10px;
-    padding: 12px 35px;
+    top: 1rem;
+    margin: 0.6rem;
+    padding: 0.8rem 2rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     cursor: pointer;
 }
+
 .popup button:hover {
     background: #218838;
 }
+
 .close-btn {
     background: red;
     color: white;
-    padding: 5px;
+    padding: 0.3rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 0.6rem;
 }
