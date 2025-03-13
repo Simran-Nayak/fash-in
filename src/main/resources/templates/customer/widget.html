@@ -48,35 +48,7 @@
         </main>
     </div>
 
-    <form id="form">
-        <div id="container">
-            <div class="addCategory">
-                <label for="addCategory">Add Category</label>
-                <input class="inputbox" type="text" placeholder="Enter category">
-            </div>
-
-            <div class="addProduct">
-                <label for="addProduct">Add Product</label>
-                <input class="inputbox" type="text" placeholder="Add your Product">
-            </div>
-
-            <div class="ProductImage">
-                <label for="ProductImage">Product Image</label>
-                <input class="inputbox" type="file" placeholder="Product Image">
-            </div>
-
-            <div class="ProductDescription">
-                <label for="ProductDescription">Product Description</label>
-                <input class="inputbox" type="text" placeholder="Product Description">
-            </div>
-            <div>
-                <button id="button1">Submit</button>
-            </div>
-        </div>
-        </div>
-    </form>
-
-    <div class="popup-overlay" id="popupOverlay">
+    <form class="popup-overlay" id="popupOverlay">
         <div class="popup">
             <h2>Add Product</h2>
             <label for="productName">Category Name:</label>
@@ -97,7 +69,7 @@
             <button id="submit-button">Submit</button>
             <button class="close-btn" id="closebtn">Close</button>
         </div>
-    </div>
+    </form>
 
     <script>
         let displayDiv = document.getElementById("popupOverlay");

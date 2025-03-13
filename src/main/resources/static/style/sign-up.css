@@ -6,54 +6,56 @@ body {
   background-image: url("https://plus.unsplash.com/premium_photo-1664202526559-e21e9c0fb46a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); 
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment:fixed; 
-  background-size:cover; 
-  background-size:100% 100%;
+  background-attachment: fixed; 
+  background-size: cover; 
+  background-size: 100% 100%;
   background-blend-mode: darken;
-  background-color:rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   font-family: sans-serif;
 }
 
-.heading-1{
-  position:relative;
-  color:#EFEFEF;
-  font-size:34px;
-  font-weight:700;
-  
+.heading-1 {
+  position: relative;
+  color: #EFEFEF;
+  font-size: 2.125rem;
+  font-weight: 700;
 }
 
-label{
-  color:#EFEFEF;
+label {
+  color: #EFEFEF;
 }
 
-input{
-  border:none;
-  background:transparent;
-  border-bottom: 2px solid #EFEFEF;
-  outline:none;
-  color:#EFEFEF;
+input {
+  border: none;
+  background: transparent;
+  border-bottom: 0.125rem solid #EFEFEF;
+  outline: none;
+  color: #EFEFEF;
+  font-size: 1rem;
 }
 
-input:focus{
-  color:#EFEFEF;
+input:focus {
+  color: #EFEFEF;
 }
 
-#gender{
-  border:none;
-  background:transparent;
-  border-bottom: 2px solid #EFEFEF;
-  outline:none;
-  color:#EFEFEF;
+#gender {
+  border: none;
+  background: transparent;
+  border-bottom: 0.125rem solid #EFEFEF;
+  outline: none;
+  color: #EFEFEF;
+  font-size: 1rem;
 }
-#gender:focus{
-  color:black;
+
+#gender:focus {
+  color: black;
 }
 
 .form {
   width: 20%;
-  background-color:rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 5%;
-  padding:3% 5%;
+  padding: 3% 5%;
   text-align: center;
 }
 
@@ -62,26 +64,41 @@ input:focus{
   margin-bottom: 5%;
   text-align: left;
 }
+
 .form-group label {
   display: block;
   margin-bottom: 2%;
 }
-.form-group input, .form-group select {
+
+.form-group input {
+  border: none; /* Remove the box */
+  background: transparent;
+  border-bottom: 0.125rem solid #EFEFEF; /* Keep the underline */
+  border-radius: 0;
+  width:100%;
+}
+
+.form-group select{
   width: 100%;
   padding: 2%;
-  border: 1% solid #ccc;
+  border: 0.0625rem solid #ccc;
   border-radius: 5%;
 }
+
 .btn {
   width: 70%;
   padding: 4.5% 0%;
-  background-color:#9548cd;
+  background-color: #9548cd;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   cursor: pointer;
-  margin-top:4%;
+  margin-top: 4%;
+  font-size: 1rem;
 }
+
 .btn:hover {
-  background-color:#4b1c6d ;
+  background-color: #4b1c6d;
 }
+why all inputs are coming in box instead of underline ?
+

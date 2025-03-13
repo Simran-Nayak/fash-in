@@ -5,33 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style/product.css">
+    <link rel="stylesheet" href="/style/category.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
     <div class="admin-container">
-        <aside class="sidebar">
-            <h1>Fashin Admin</h1>
-            <ul>
-                <li><a href="http://localhost:1211/customer/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
-                <li><a href="http://localhost:1211/customer/product"><i class="fas fa-box"></i> Products</a></li>
-                <li><a href="http://localhost:1211/customer/category"><i class="fas fa-tags"></i> Category</a></li>
-                <li><a href="http://localhost:1211/customer/widget"><i class="fas fa-tags"></i> Widget</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
-        </aside>
+        <div data-th-replace="~{'fragment/common' :: sidebar}"></div>
+
         <main class="main-content">
             <h1>Dashboard</h1>
-            <div class="stats">
-                <div class="card">Total Orders: <span>120</span></div>
-                <div class="card">Revenue: <span>$15,000</span></div>
-                <div class="card">Category: <span>350</span></div>
-                <div class="card">Users: <span>500</span></div>
-            </div>
-            <h2>Manage Products</h2>
+            <div data-th-replace="~{'fragment/common' :: admin-cards}"></div>
+            <h2>Manage Category</h2>
             <button id="addproductbtn">Add Categories</button>
             <table>
                 <tablehead>
@@ -39,18 +24,16 @@
                         <th>Category ID</th>
                         <th>Category</th>
                         <th>Images</th>
-                        <!-- <th>Price</th> -->
                         <th>Stock</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tablebody>
-                        <tr data-th-each="product:${products}">
-                            <td data-th-text="${product.productId}"></td>
-                            <td data-th-text="${product.productTitle}"></td>
-                            <td><img data-th-src="${product.productImageUrl}" alt="Category Image" width="50"></td>
-                            <!-- <td class="td" data-th-text="${product.productPrice}">$20</td> -->
-                            <td class="td" data-th-text="${product.productStockQuantity}">65</td>
+                        <tr data-th-each="category:${categories}">
+                            <td data-th-text="${category.categoryId}"></td>
+                            <td data-th-text="${category.categoryTitle}"></td>
+                            <td><img data-th-src="${category.categoryImageUrl}" alt="Category Image" width="50"></td>
+                            <td class="td" data-th-text="${category.categoryStatus}">65</td>
                             <td class="td">
                                 <button class="button" id="editbutton1">Edit</button>
                                 <button class="button">Delete</button>
@@ -61,56 +44,28 @@
         </main>
     </div>
 
-    <form id="form">
-        <div id="container">
-            <div class="addCategory">
-                <label for="addCategory">Add Category</label>
-                <input class="inputbox" type="text" placeholder="Enter category">
-            </div>
-
-            <div class="addProduct">
-                <label for="addProduct">Add Product</label>
-                <input class="inputbox" type="text" placeholder="Add your Product">
-            </div>
-
-            <div class="ProductImage">
-                <label for="ProductImage">Product Image</label>
-                <input class="inputbox" type="file" placeholder="Product Image">
-            </div>
-
-            <div class="ProductDescription">
-                <label for="ProductDescription">Product Description</label>
-                <input class="inputbox" type="text" placeholder="Product Description">
-            </div>
-            <div>
-                <button id="button1">Submit</button>
-            </div>
-        </div>
-        </div>
-    </form>
-
-    <div class="popup-overlay" id="popupOverlay">
+    <form class="popup-overlay" id="popupOverlay">
         <div class="popup">
-            <h2>Add Product</h2>
-            <label for="productName">Category Name:</label>
+            <h2>Add Category</h2>
+            <label for="categoryName">Category Name:</label>
             <input type="text" placeholder="Category Name">
 
-            <label for="productId">Category ID:</label>
+            <label for="categoryId">Category ID:</label>
             <input type="text" placeholder="Category ID">
 
-            <label for="productId">Category Price:</label>
+            <label for="categoryId">Category Price:</label>
             <input type="text" placeholder="Category Price">
 
-            <label for="productDescription">Category Description:</label>
+            <label for="categoryDescription">Category Description:</label>
             <textarea placeholder="Category Description"></textarea>
 
-            <label for="productImage">Category Image:</label>
+            <label for="categoryImage">Category Image:</label>
             <input type="file" accept="image/*">
 
             <button id="submit-button">Submit</button>
             <button class="close-btn" id="closebtn">Close</button>
         </div>
-    </div>
+    </form>
 
 <script>
     let displayDiv=document.getElementById("popupOverlay");
