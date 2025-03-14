@@ -42,6 +42,16 @@ public class Widget extends Auditable {
         products.add(product);
     }
 
+    // public void addProduct(Product product){
+    //     if (products == null) {
+    //         products = new ArrayList<>();
+    //     }
+    //     if (product != null) {
+    //         product.addWidget(this);
+    //         products.add(product);
+    //     }
+    // }
+
     public void removeProduct(String productId){
         for(Product product:products){
             if(product.getProductId().equals(productId)){
@@ -50,6 +60,10 @@ public class Widget extends Auditable {
                 break;
             }
         }
+    }
+
+    public String getCategoryImageUrl() {
+        throw new UnsupportedOperationException("Unimplemented method 'getCategoryImageUrl'");
     }
 
     
