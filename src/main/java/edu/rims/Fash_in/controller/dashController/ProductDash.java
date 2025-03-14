@@ -41,8 +41,10 @@ public class ProductDash {
         return "customer/product";
     }
 
-     @PostMapping("/Customer/product")
-    public String ProductAdd(@ModelAttribute Product product,@RequestParam("productImageFile")MultipartFile file)
+     @PostMapping("/customer/product")
+    public String ProductAdd(@ModelAttribute Product product,@RequestParam("productImageFile")MultipartFile file, 
+    @RequestParam("categoryId") String categoryId
+    )
     throws IOException{
         if (!file.isEmpty()) {
             String originalFilename = file.getOriginalFilename();
@@ -53,6 +55,11 @@ public class ProductDash {
             fileOutputStream.close();
             product.setProductImageUrl(fileName);  
         }
+
+        Category category = categoryRepository.findById(categoryId).orElseThrow();
+        product.setCategory(category);
+        product.setCreatedDate(LocalDateTime.now());
+        product.setUpdatedDate(LocalDateTime.now());
         productRepository.save(product);
         return "redirect:/customer/product";
     }

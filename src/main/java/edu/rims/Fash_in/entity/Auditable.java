@@ -17,7 +17,7 @@ public class Auditable {
     private LocalDateTime createdDate;
 
     @Column(name = "updated_date", nullable = false)
-    private LocalDateTime UpdatedDate;
+    private LocalDateTime updatedDate;
 
     @Column(name = "created_by", length = 255)
     private String createdBy;
