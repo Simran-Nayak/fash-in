@@ -39,13 +39,8 @@ public class Widgetdash {
         this.adminDash = adminDash;
         this.productRepository = productRepository;
     }
-     @GetMapping("/customer/widget")
-    String widget() {
-        return "customer/widget";
-    }
 
-
-    @GetMapping ("/widget")
+    @GetMapping ("/customer/widget")
     public String getWidgets (Model model){
         model.addAttribute("widgets", widgetRepository.findAll());
         return "customer/widget";
@@ -91,7 +86,7 @@ public class Widgetdash {
         }
             return "redirect:/customer/widget";
     }
-    @GetMapping("/widget/products")
+    @GetMapping("/customer/widget/products")
     public String getMethodName(@RequestParam("id")String widgetId, Model model){
         
         model.addAttribute("widget", widgetRepository.findById(widgetId).orElseThrow());

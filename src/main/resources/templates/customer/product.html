@@ -33,7 +33,7 @@
                     <tr data-th-each="product:${products}">
                         <td data-th-text="${product.productId}"></td>
                         <td data-th-text="${product.productTitle}"></td>
-                        <td><img data-th-src="${product.productImageUrl}" alt="Product Image" width="50"></td>
+                        <td><img data-th-src="|/product/image/${product.productId}|" alt="Product Image" width="50"></td>
                         <td class="td" data-th-text="${product.productPrice}"></td>
                         <td class="td" data-th-text="${product.productStockQuantity}"></td>
                         <td class="td">

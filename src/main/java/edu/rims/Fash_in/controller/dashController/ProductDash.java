@@ -64,7 +64,7 @@ public class ProductDash {
         return "redirect:/customer/product";
     }
 
-    @GetMapping(value= "/Product/image/{productId}", produces = {"image/jpg","image/jpeg","image/png"})
+    @GetMapping(value= "/product/image/{productId}", produces = {"image/jpg","image/jpeg","image/png"})
     @ResponseBody
     public byte[] getImage (@PathVariable String productId) throws IOException{
         Product product = productRepository.findById(productId).orElseThrow();
