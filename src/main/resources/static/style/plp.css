@@ -23,14 +23,14 @@ hr{
     justify-content: space-between;
     align-items: center;
     background-color: #67308D;
-    height: 6.25rem;
+    height: 5rem;
     width: 100%;
     z-index:10;
 }
 
 .navbar ul li {
     display: inline-block;
-    margin-left: 1.875rem;
+    margin-left: 1rem;
     right: 10.5rem;
 }
 
@@ -44,8 +44,8 @@ hr{
 }
 
 .logo-img {
-    width: 8.125rem;
-    height: 5rem;
+    width: 7.12rem;
+    height:4rem;
 }
 
 .search-btn {

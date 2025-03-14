@@ -2,7 +2,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color:#
 }
 
 .admin-container {
@@ -28,9 +27,9 @@ h1{
 }
 
 .sidebar ul li {
-    position:relative;
-    padding: 20% 0%;
-    margin-right:10%;
+    position: relative;
+    padding: 17% 0%;
+    margin-right: 8%;
 }
 
 .sidebar ul li a {

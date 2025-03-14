@@ -17,7 +17,7 @@
             <h1>Dashboard</h1>
             <div data-th-replace="~{'fragment/common' :: admin-cards}"></div>
             <h2>Manage Category</h2>
-            <button id="addproductbtn">Add Categories</button>
+
             <table>
                 <tablehead>
                     <tr>
@@ -66,27 +66,6 @@
             <button class="close-btn" id="closebtn">Close</button>
         </div>
     </form>
-
-<script>
-    let displayDiv=document.getElementById("popupOverlay");
-    let closeButton=document.getElementById("closebtn");
-    let submitButton=document.getElementById("submit-button");
-    let button=document.getElementById("addproductbtn");
-    button.addEventListener('click',()=>{
-        displayDiv.style.display="flex";
-    });
-
-    closeButton.addEventListener('click',()=>{
-        displayDiv.style.display="none";
-    });
-
-    submitButton.addEventListener('click',()=>{
-        displayDiv.style.display="none";
-        alert("Product added successfully!");
-    })
-</script>
-
-
 </body>
 
 </html>

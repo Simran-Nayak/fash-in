@@ -71,7 +71,7 @@
         </div>
     </div>
 <div class="addWidgetContainer">
-    <form action="/customer/admin/add" method="post"
+    <form action="/customer/admin/add" method="post">
     <input type="text" name="=widgetName" placeholder="Enter a widget name..."
     data-th-value ="${widget != null ? widget.widgetName :''}">
     <input type="text" placeholder="sequence id" name="sequence" data-th-value="${widget!= null ? widget.sequence:''}">

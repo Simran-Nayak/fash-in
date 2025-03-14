@@ -7,18 +7,18 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
  
 @SpringBootApplication
-public class FashInApplication implements CommandLineRunner{
+public class FashInApplication{
 
 	public static void main(String[] args) {
 	SpringApplication.run(FashInApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception{
-		File file = new File("upload_images") ;
-		if (!file.exists()){
-			file.mkdir();
-		}
-	}
+	// @Override
+	// public void run(String... args) throws Exception{
+	// 	File file = new File("upload_images") ;
+	// 	if (!file.exists()){
+	// 		file.mkdir();
+	// 	}
+	// }
 }
     

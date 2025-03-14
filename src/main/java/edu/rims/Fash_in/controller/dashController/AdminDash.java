@@ -33,5 +33,4 @@ public class AdminDash {
         model.addAttribute("products", products);
         return "customer/admin";
     }
-    
 }

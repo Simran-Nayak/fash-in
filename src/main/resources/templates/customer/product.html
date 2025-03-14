@@ -34,8 +34,8 @@
                         <td data-th-text="${product.productId}"></td>
                         <td data-th-text="${product.productTitle}"></td>
                         <td><img data-th-src="${product.productImageUrl}" alt="Product Image" width="50"></td>
-                        <td class="td" data-th-text="${product.productPrice}">$20</td>
-                        <td class="td" data-th-text="${product.productStockQuantity}">65</td>
+                        <td class="td" data-th-text="${product.productPrice}"></td>
+                        <td class="td" data-th-text="${product.productStockQuantity}"></td>
                         <td class="td">
                             <button class="button" id="editbutton1">Edit</button>
                             <button class="button">Delete</button>
@@ -50,21 +50,24 @@
     <form class="popup-overlay" id="popupOverlay">
         <div class="popup">
             <h2>Add Product</h2>
-            <form action="/product" method="post">
-                <label for="productName">Product Name:</label>
-                <input type="text" placeholder="Product Name" name="productTitle" id="productName">
+            <form action="/customer/product" method="post" enctype="multipart/form-data">
 
-            <label for="productId">Product Price:</label>
-            <input type="text" placeholder="Category Price" id="productId">
+                <label for="productTitle">Product Name:</label>
+                <input type="text" placeholder="Product Name" name="productTitle" id="productTitle">
+
+                <label for="productPrice">Product Price:</label>
+                <input type="text" placeholder="Product Price" name="productPrice" id="productPrice">
 
                 <label for="productDescription">Product Description:</label>
-                <textarea placeholder="Product Description" name="productDescription" id="productDescription"></textarea>
+                <textarea placeholder="Product Description" name="productDescription"
+                    id="productDescription"></textarea>
 
                 <label for="productImage">Product Image:</label>
-                <input type="file" accept="image/*" id="productImage" >
+                <input type="file" name="productImageFile" accept="image/*" id="productImage">
 
-                <select name="category" id="">
-                    <option data-th-each="category : ${categories}" data-th-value="${category.categoryId}" data-th-text="${category.categoryTitle}"></option>
+                <select name="categoryId" id="categoryId">
+                    <option th:each="category : ${categories}" th:value="${category.categoryId}"
+                        th:text="${category.categoryTitle}"></option>
                 </select>
 
                 <button type="submit" id="submit-button">Submit</button>
