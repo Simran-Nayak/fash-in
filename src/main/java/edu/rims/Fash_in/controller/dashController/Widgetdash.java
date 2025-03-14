@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import javax.management.RuntimeErrorException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +16,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import edu.rims.Fash_in.constant.WidgetStatus;
+import edu.rims.Fash_in.entity.Category;
 import edu.rims.Fash_in.entity.Product;
 import edu.rims.Fash_in.entity.Widget;
 import edu.rims.Fash_in.repository.*;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 
 @Controller
 public class Widgetdash {
-
+       
     private final ProductRepository productRepository;
 
     private final AdminDash adminDash;
@@ -49,7 +50,7 @@ public class Widgetdash {
         model.addAttribute("widgets", widgetRepository.findAll());
         return "customer/widget";
     }
-    @PostMapping("/widget/add")
+    @PostMapping("/customer/widget/add")
     public String postMethodName(@RequestParam String widgetName, @RequestParam String widgetId, @RequestParam int sequence) {
         Widget widget = widgetRepository.findById(widgetId).orElse(new Widget());    
         widget.setWidgetName(widgetName);
@@ -74,7 +75,7 @@ public class Widgetdash {
     @PostMapping("/widget/product/add")
     public String addProductToWidget(@RequestParam MultipartFile file) {
         if(file.isEmpty())
-        return "redirect:/admin/widget" ;
+        return "redirect:/customer/widget" ;
         try{
             BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(file.getInputStream()));
             Map<String, String> details=new HashMap<>();
@@ -115,7 +116,6 @@ public class Widgetdash {
         widgetRepository.save(widget);
         return "redirect:/customer/widget";
     }
-
 }
 
 

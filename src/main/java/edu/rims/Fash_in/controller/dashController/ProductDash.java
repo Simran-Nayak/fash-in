@@ -33,7 +33,7 @@ public class ProductDash {
     private CategoryRepository categoryRepository;
 
     @GetMapping("/customer/product")
-    String cart(Model model) {
+    String productDash(Model model) {
         List<Product> products = productRepository.findAll();
         List<Category> categories = categoryRepository.findAll();
         model.addAttribute("products", products);
@@ -64,14 +64,13 @@ public class ProductDash {
         return "redirect:/customer/product";
     }
 
-    @GetMapping(value= "/product/image/{productId}", produces = {"image/jpg","image/jpeg","image/png"})
+    @GetMapping(value= "/Product/image/{productId}", produces = {"image/jpg","image/jpeg","image/png"})
     @ResponseBody
     public byte[] getImage (@PathVariable String productId) throws IOException{
         Product product = productRepository.findById(productId).orElseThrow();
         String productImageUrl = product.getProductImageUrl();
         if (productImageUrl==null|| productImageUrl.startsWith("http")) {
             return null;
-            
         }
         FileInputStream fis = new FileInputStream(productImageUrl);
         byte[] image=fis.readAllBytes();
