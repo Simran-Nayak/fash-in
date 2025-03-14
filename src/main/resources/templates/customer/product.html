@@ -47,7 +47,7 @@
         </main>
     </div>
 
-    <form class="popup-overlay" id="popupOverlay">
+    <div class="popup-overlay" id="popupOverlay">
         <div class="popup">
             <h2>Add Product</h2>
             <form action="/customer/product" method="post" enctype="multipart/form-data">
@@ -71,10 +71,10 @@
                 </select>
 
                 <button type="submit" id="submit-button">Submit</button>
-                <button class="close-btn" id="closebtn">Close</button>
             </form>
+            <button class="close-btn" id="closebtn">Close</button>
         </div>
-    </form>
+    </div>
 
     <script>
         let displayDiv = document.getElementById("popupOverlay");
