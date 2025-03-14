@@ -25,10 +25,6 @@ import edu.rims.Fash_in.repository.ProductRepository;
 
 @Controller
 public class ProductDash {
-    // @GetMapping("/customer/product")
-    // String cart() {
-    //     return "customer/product";
-    // }
 
      @Autowired
     private ProductRepository productRepository;
@@ -36,7 +32,7 @@ public class ProductDash {
     private CategoryRepository categoryRepository;
 
     @GetMapping("/customer/product")
-    String cart(Model model) {
+    String productDash(Model model) {
         List<Product> products = productRepository.findAll();
         List<Category> categories = categoryRepository.findAll();
         model.addAttribute("products", products);
@@ -44,7 +40,7 @@ public class ProductDash {
         return "customer/product";
     }
 
-     @PostMapping("/Customer/product")
+    @PostMapping("/customer/product")
     public String ProductAdd(@ModelAttribute Product product,@RequestParam("productImageFile")MultipartFile file)
     throws IOException{
         if (!file.isEmpty()) {
@@ -60,22 +56,20 @@ public class ProductDash {
         return "redirect:/customer/product";
     }
 
-    @GetMapping(value= "/product/image/{productId}", produces = {"image/jpg","image/jpeg","image/png"})
+    @GetMapping(value= "/Product/image/{productId}", produces = {"image/jpg","image/jpeg","image/png"})
     @ResponseBody
     public byte[] getImage (@PathVariable String productId) throws IOException{
         Product product = productRepository.findById(productId).orElseThrow();
         String productImageUrl = product.getProductImageUrl();
         if (productImageUrl==null|| productImageUrl.startsWith("http")) {
             return null;
-            
         }
         FileInputStream fis = new FileInputStream(productImageUrl);
         byte[] image=fis.readAllBytes();
         fis.close();
         return image;
     }
-
-       @PostMapping("/product")
+    @PostMapping("/product")
     public String signUp(@ModelAttribute Product product) {
         product.setCreatedDate(LocalDateTime.now()); 
         product.setUpdatedDate(LocalDateTime.now());
@@ -83,10 +77,64 @@ public class ProductDash {
         product.setUpdatedBy("user"); 
         product.setProductImageUrl("bksjbkbskbkdbksbbs");
         productRepository.save(product);
-        return "redirect:/customer/product";   
-
-        
+        return "redirect:/customer/product";    
     }
-
-
 }
+
+
+// @PostMapping("/customer/product")
+// public String ProductAdd(@ModelAttribute Product product, @RequestParam("productImageFile") MultipartFile file)
+//         throws IOException {
+//     if (!file.isEmpty()) {
+//         String originalFilename = file.getOriginalFilename();
+
+//         // Ensure originalFilename is not null or empty
+//         if (originalFilename == null || !originalFilename.contains(".")) {
+//             throw new IllegalArgumentException("Invalid file: missing extension");
+//         }
+
+//         String extName = originalFilename.substring(originalFilename.lastIndexOf("."));
+//         String fileName = "upload_images/" + UUID.randomUUID().toString() + extName;
+
+//         try (FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
+//             fileOutputStream.write(file.getBytes());
+//         }
+
+//         product.setProductImageUrl(fileName);
+//     }
+
+//     productRepository.save(product);
+//     return "redirect:/customer/product";
+// }
+
+
+    //  @PostMapping("/Customer/product")
+    // public String ProductAdd(@ModelAttribute Product product,@RequestParam("productImageFile")MultipartFile file)
+    // throws IOException{
+    //     if (!file.isEmpty()) {
+    //         String originalFilename = file.getOriginalFilename();
+    //         String extName = originalFilename.substring(originalFilename.lastIndexOf("."));
+    //         String fileName ="upload_images/" + UUID.randomUUID().toString()+extName;
+    //         FileOutputStream fileOutputStream = new FileOutputStream(fileName);
+    //         fileOutputStream.write(file.getBytes());
+    //         fileOutputStream.close();
+    //         product.setProductImageUrl(fileName);  
+    //     }
+    //     productRepository.save(product);
+    //     return "redirect:/customer/product";
+    // }
+
+    // @GetMapping(value= "/product/image/{productId}", produces = {"image/jpg","image/jpeg","image/png"})
+    // @ResponseBody
+    // public byte[] getImage (@PathVariable String productId) throws IOException{
+    //     Product product = productRepository.findById(productId).orElseThrow();
+    //     String productImageUrl = product.getProductImageUrl();
+    //     if (productImageUrl==null|| productImageUrl.startsWith("http")) {
+    //         return null;
+            
+    //     }
+    //     FileInputStream fis = new FileInputStream(productImageUrl);
+    //     byte[] image=fis.readAllBytes();
+    //     fis.close();
+    //     return image;
+    // 

@@ -52,19 +52,16 @@
             <h2>Add Product</h2>
             <form action="/product" method="post">
                 <label for="productName">Product Name:</label>
-                <input type="text" placeholder="Product Name" name="productTitle">
-
-                <label for="productPrice">Category Price:</label>
-                <input type="text" placeholder="Category Price"  name="productPrice">
+                <input type="text" placeholder="Product Name" name="productTitle" id="productName">
 
             <label for="productId">Product Price:</label>
-            <input type="text" placeholder="Category Price">
+            <input type="text" placeholder="Category Price" id="productId">
 
                 <label for="productDescription">Product Description:</label>
-                <textarea placeholder="Product Description" name="productDescription"></textarea>
+                <textarea placeholder="Product Description" name="productDescription" id="productDescription"></textarea>
 
                 <label for="productImage">Product Image:</label>
-                <input type="file" accept="image/*">
+                <input type="file" accept="image/*" id="productImage" >
 
                 <select name="category" id="">
                     <option data-th-each="category : ${categories}" data-th-value="${category.categoryId}" data-th-text="${category.categoryTitle}"></option>
