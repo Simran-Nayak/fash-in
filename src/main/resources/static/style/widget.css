@@ -44,6 +44,8 @@ h1 {
 }
 
 .main-content {
+    position:relative;
+    top:3rem;
     flex-grow: 1;
     padding: 2%;
 }
@@ -232,10 +234,11 @@ label {
 }
 
 .addWidgetContainer{
-    position:absolute;
-    background-color: #28a745;
-    top:70%;
-    left:30%;
+    text-align: center; 
+    width: 90%; 
+    position: absolute;
+    top: 4%;
+    left:10%;
 }
 
 .modal-box{
@@ -243,8 +246,57 @@ label {
     top:30%;
     left:35%;
     background-color:#EFEFEF;
-    width:500px;
+    width:30rem;
+    height:16rem;
     border-radius: 10px;
 }
 
+.cross-icon{
+    position:absolute;
+    padding:0.5rem;
+    right:0;
+}
+
+#closebtn{
+    width:3rem;
+    height:2rem;
+}
+
+.modal-box h2{
+    padding:0.5rem;
+}
+
+.modal-body p{
+    padding:1rem;
+}
+
+#input1{
+    padding:1rem;
+}
+
+#uploadinp{
+    position:relative;
+    left:1rem;
+}
+
+.input{
+    position:relative;
+    left:4%;
+    width:38%;
+    height:40px;
+    border-radius:5px;
+    border:0.5px solid rgb(122, 120, 120);
+    margin-right:10px;
+}
+
+#submitbtn{
+    position:relative;
+    left:4%;
+    width:100px;
+    height:40px;
+}
+
+.d-none.active{
+    display:none;
+}
 

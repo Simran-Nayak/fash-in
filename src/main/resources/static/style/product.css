@@ -146,15 +146,15 @@ label {
 }
 
 #addproductbtn {
-    position: absolute;
     background-color: #6b2e96;
     color: #EFEFEF;
     font-size: 1rem;
     width: 12.5rem;
     height: 2.5rem;
     border-radius: 0.313rem;
-    right: 2%;
+    float:right;
     top: 38%;
+    margin-bottom:5px;
     cursor: pointer;
 }
 
