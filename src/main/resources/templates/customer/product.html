@@ -33,11 +33,12 @@
                     <tr data-th-each="product:${products}">
                         <td data-th-text="${product.productId}"></td>
                         <td data-th-text="${product.productTitle}"></td>
-                        <td><img data-th-src="|/product/image/${product.productId}|" alt="Product Image" width="50"></td>
+                        <td><img data-th-src="|/product/image/${product.productId}|" alt="Product Image" width="50">
+                        </td>
                         <td class="td" data-th-text="${product.productPrice}"></td>
                         <td class="td" data-th-text="${product.productStockQuantity}"></td>
                         <td class="td">
-                            <button class="button" id="editbutton1">Edit</button>
+                            <button class="button" data-th-onclick="openModal([[${product.productId}]])">Edit</button>
                             <button class="button">Delete</button>
                         </td>
                     </tr>
@@ -91,8 +92,30 @@
 
         submitButton.addEventListener('click', () => {
             displayDiv.style.display = "none";
-            alert("Product added successfully!");
         })
+
+        async function openModal(productId=null) {
+            displayDiv.style.display = "block";
+            if (productId) {
+                const response = await fetch(`/customer/product/${productId}`).catch((err) =>
+                    console.error(err)
+                );
+
+                const product = await response.json();
+                updateFeilds(product);
+            }
+        }
+
+        function updateFeilds(product){
+            document.getElementById('product-name').value= product.productTitle;
+            document.getElementById('category').value= product.category.categoryId;
+            document.getElementById('product-price').value= product.productPrice;
+            document.getElementById('product-stock').value= product.productStockQuantity;
+            document.getElementById('product-description').value= product.productDescription;
+            document.getElementById('product-status').value= product.productStatus;
+            document.getElementById('imageUrl').value= product.productImageUrl;
+            document.getElementById('productId').value= product.productId;
+        }
     </script>
 </body>
 
