@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.rims.Fash_in.dto.ProductResponseDTO;
+import edu.rims.Fash_in.dto.ProductResponseDTO.CategoryResponse;
 import edu.rims.Fash_in.entity.Category;
 import edu.rims.Fash_in.entity.Product;
 import edu.rims.Fash_in.repository.CategoryRepository;
@@ -89,7 +91,7 @@ public class ProductDash {
         return "redirect:/customer/product";   
 
     }
-}
+
 
     //    @PostMapping("/product")
     // public String signUp(@ModelAttribute Product product) {
@@ -101,3 +103,24 @@ public class ProductDash {
     //     productRepository.save(product);
     //     return "redirect:/customer/product";   
     // }
+
+    @GetMapping ("/products/{productId}")
+    @ResponseBody 
+    public ProductResponseDTO getproduct(@PathVariable String productId){
+        Product product = productRepository.findById(productId).orElseThrow();
+        ProductResponseDTO dto = new ProductResponseDTO();
+        dto.setProductId(productId);
+        dto.setProductTitle(product.getProductTitle());
+        dto.setProductDescprition(product.getProductDescription());
+        dto.setProductPrice(product.getProductPrice());
+        dto.setProductStatus(product.getProductStatus().toString());
+        dto.setProductStockQuantity(product.getProductStockQuantity());
+        dto.setProductImageUrl(product.getProductImageUrl());
+
+        CategoryResponse category = dto.new CategoryResponse();
+        category.setCategoryId (product.getCategory().getCategoryId());
+        category.setCategoryTitle(product.getCategory(). getCategoryTitle());
+        dto.setCategory(category);
+        return dto;
+    }
+    }
