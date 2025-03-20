@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <link rel="stylesheet" href="../../static/style/orderhistory.css">
+        <div class="container">
+            <header>
+                <h1>Order History</h1>
+            </header>
+    
+            <div class="order-list">
+                <h2>Your Orders</h2>
+                <ul id="order-history">
+                    <li class="order-item" data-th-each="order : ${orders}">
+                        <h3 data-th-text="|Order Id: ${order.orderId}|"></h3>
+                        <div class="order-details">
+                            <p ></p>
+                            <p ></p>
+                        </div>
+                        <button>View</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="home"><a href="/customer" class="home-button">Home</a></div>
+        </div>
+</body>
+</html>
