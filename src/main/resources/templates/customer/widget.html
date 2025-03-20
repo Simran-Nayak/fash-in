@@ -14,8 +14,7 @@
         <aside class="sidebar">
             <h1>Fashin Admin</h1>
             <ul>
-                <li><a href="http://localhost:1211/customer/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                </li>
+                <li><a href="http://localhost:1211/customer/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
                 <li><a href="http://localhost:1211/customer/product"><i class="fas fa-box"></i> Products</a></li>
                 <li><a href="http://localhost:1211/customer/category"><i class="fas fa-tags"></i> Category</a></li>
@@ -24,8 +23,19 @@
                 <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </aside>
+
+            <form action="/customer/widget/add" method="post" class="addWidgetContainer">
+                <input type="text" class="input" name="widgetName" placeholder="Enter a widget name..." data-th-value="${widget != null ? widget.widgetName :null}">
+                <input type="text" class="input" placeholder="sequence id" name="sequence" data-th-value="${widget!= null ? widget.sequence:null}">
+                <input type="hidden" name="widgetId" data-th-value="${widget != null ? widget.widgetId :''}">
+                <input type="submit" id="submitbtn">
+            </form>
+
         <main class="main-content">
             <h1>Widget</h1>
+            <div class="addProductWidgetBtnContainer">
+                <button class="addProductWidgetBtn" id="addProductButton">Add product to widget</button>
+            </div>
             <table>
                 <tablehead>
                     <tr>
@@ -51,78 +61,22 @@
                                     title="show products" style="all:unset; cursor: pointer;"><i
                                         class="fas fa-box-open"></i> </a>
                             </td>
-                            <!-- <td class="td">
-                                <button class="button" id="editbutton1">Edit</button>
-                                <button class="button">Delete</button>
-                            </td> -->
                         </tr>
                     </tbody>
-                    <!-- <tablebody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="td">
-                                <button class="button" id="editbutton1">Edit</button>
-                                <button class="button">Delete</button>
-                            </td>
-                        </tr>
-                    </tablebody> -->
                 </tablehead>
             </table>
         </main>
     </div>
 
-    <div class="addWidgetContainer">
-        <form action="/customer/widget/add" method="post">
-            <input type="text" name="widgetName" placeholder="Enter a widget name..."
-                data-th-value="${widget != null ? widget.widgetName :null}">
-            <input type="text" placeholder="sequence id" name="sequence"
-                data-th-value="${widget!= null ? widget.sequence:null}">
-            <input type="hidden" name="widgetId" data-th-value="${widget != null ? widget.widgetId :''}">
+   
 
-            <input type="submit">
-        </form>
-    </div>
+    
 
-    <div class="addProductWidgetBtnContainer">
-        <button class="addProductWidgetBtn" onclick="openModel()">Add product to widget</button>
-    </div>
-
-    <table>
-        <!-- <thread>
-                <tr>
-                    <th> Widget Name</th>
-                    <th> Widget Id</th>
-                    <th> sequence</th>
-                    <th> Widget Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thread> -->
-        <!-- <tbody id="categoryTable">
-                <tr data-th-each="widget: ${widgets}">
-                    <td data-th-text="${widget.widgetName}"></td>
-                    <td data-th-text="${widget.widgetId}"></td>
-                    <td data-th-text="${widget.sequence}"></td>
-                    <td data-th-text="${widget.widgetStatus}">
-                        data-th-class="${widget.widgetStatus.name()=='ACTIVE'?'clr-yellow': 'clr-red'}"></td>
-                    <td>
-                        <a data-th-href="|/customer/widget/edit?id=${widget.widgetId}|" class="action-link"> <i
-                                class="fa-solid fa-pen-to-square"></i></a>
-                        <a data-th-href="|/customer/widget/remove?id=${widget.widgetId}|" class="action-link"><i
-                                class="fa-solid fa-trash"></i></a>
-                        <a data-th-href="|/customer/widget/products?id=${widget.widgetId}|" title="show products"
-                            style="all:unset; cursor: pointer;"><i class="fas fa-box-open"></i> </a>
-                    </td>
-                </tr>
-            </tbody> -->
-    </table>
     <!--Modal-->
     <div class="widgetModel d-none">
         <div class="modal-box">
             <div class="cross-icon">
-                <button onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="closeModal()" id="closebtn"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-header">
                 <h2>Add product to widget</h2>
@@ -131,36 +85,28 @@
             <div class="modal-body">
                 <form action="/widget/product/add" method="post" enctype="multipart/form-data" id="widgetProductForm">
                     <p>Note: Download template <a href="/file/widget-template.csv" download>click the link</a></p>
-                    <input type="file" accept="text/csv" name="file">
+                    <input type="file" accept="text/csv" name="file" id="input1">
                     <div class="text-center">
-                        <input type="submit" value="upload">
+                        <input type="submit" value="upload" id="uploadinp">
                     </div>
                 </form>
             </div>
 
         </div>
     </div>
-    </form>
 
-    <!-- <script>
-        let displayDiv = document.getElementById("popupOverlay");
-        let closeButton = document.getElementById("closebtn");
-        let submitButton = document.getElementById("submit-button");
-        let button = document.getElementById("addproductbtn");
-        button.addEventListener('click', () => {
-            displayDiv.style.display = "flex";
+    <script>
+        let addProductButton = document.getElementById("addProductButton");
+        let closebutton = document.getElementById("closebtn");
+        let display= document.getElementsByClassName("d-none")[0];
+        addProductButton.addEventListener('click',()=>{
+            display.classList.toggle("d-none");
         });
 
-        closeButton.addEventListener('click', () => {
-            displayDiv.style.display = "none";
-        });
-
-        submitButton.addEventListener('click', () => {
-            displayDiv.style.display = "none";
-            alert("Product added successfully!");
+        closebutton.addEventListener('click',()=>{
+            display.classList.add("d-none");
         })
-    </script> -->
-
+    </script>
 
 </body>
 
