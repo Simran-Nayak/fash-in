@@ -282,7 +282,7 @@ label {
 .input{
     position:relative;
     left:4%;
-    width:38%;
+    width:36%;
     height:40px;
     border-radius:5px;
     border:0.5px solid rgb(122, 120, 120);
@@ -296,7 +296,7 @@ label {
     height:40px;
 }
 
-.d-none.active{
+.d-none{
     display:none;
 }
 
