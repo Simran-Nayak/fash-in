@@ -23,6 +23,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Product</th>
+                        <th>Product Description</th>
                         <th>Images</th>
                         <th>Price</th>
                         <th>Stock</th>
@@ -33,12 +34,13 @@
                     <tr data-th-each="product:${products}">
                         <td data-th-text="${product.productId}"></td>
                         <td data-th-text="${product.productTitle}"></td>
+                        <td data-th-text="${product.productDescription}"></td>
                         <td><img data-th-src="|/product/image/${product.productId}|" alt="Product Image" width="50">
                         </td>
                         <td class="td" data-th-text="${product.productPrice}"></td>
                         <td class="td" data-th-text="${product.productStockQuantity}"></td>
                         <td class="td">
-                            <button class="button" data-th-onclick="openModal([[${product.productId}]])">Edit</button>
+                            <button class="button" th:attr="onclick=|openModal('${product.productId}')|">Edit</button>
                             <button class="button">Delete</button>
                         </td>
                     </tr>
@@ -52,6 +54,7 @@
         <div class="popup">
             <h2>Add Product</h2>
             <form action="/customer/product" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="productId" id="productId"> <!-- Add hidden field for product ID -->
 
                 <label for="productTitle">Product Name:</label>
                 <input type="text" placeholder="Product Name" name="productTitle" id="productTitle">
@@ -60,18 +63,22 @@
                 <input type="text" placeholder="Product Price" name="productPrice" id="productPrice">
 
                 <label for="productDescription">Product Description:</label>
-                <textarea placeholder="Product Description" name="productDescription" id="productDescription"></textarea>
+                <textarea placeholder="Product Description" name="productDescription"
+                    id="productDescription"></textarea>
 
                 <label for="productImage">Product Image:</label>
                 <input type="file" name="productImageFile" accept="image/*" id="productImage">
 
-                <select name="categoryId" id="categoryId">
-                    <option th:each="category : ${categories}" th:value="${category.categoryId}"
-                        th:text="${category.categoryTitle}"></option>
-                </select>
+                <div id="categorybutton">
+                    <select name="categoryId" id="categoryId">
+                        <option th:each="category : ${categories}" th:value="${category.categoryId}"
+                            th:text="${category.categoryTitle}"></option>
+                    </select>
 
-                <button type="submit" id="submit-button">Submit</button>
+                    <button type="submit" id="submit-button">Submit</button>
+                </div>
             </form>
+
             <button class="close-btn" id="closebtn">Close</button>
         </div>
     </div>
@@ -93,10 +100,10 @@
             displayDiv.style.display = "none";
         })
 
-        async function openModal(productId=null) {
+        async function openModal(productId = null) {
             displayDiv.style.display = "block";
             if (productId) {
-                const response = await fetch(`/customer/product/${productId}`).catch((err) =>
+                const response = await fetch(`/products/${productId}`).catch((err) =>
                     console.error(err)
                 );
 
@@ -105,15 +112,15 @@
             }
         }
 
-        function updateFeilds(product){
-            document.getElementById('product-name').value= product.productTitle;
-            document.getElementById('category').value= product.category.categoryId;
-            document.getElementById('product-price').value= product.productPrice;
-            document.getElementById('product-stock').value= product.productStockQuantity;
-            document.getElementById('product-description').value= product.productDescription;
-            document.getElementById('product-status').value= product.productStatus;
-            document.getElementById('imageUrl').value= product.productImageUrl;
-            document.getElementById('productId').value= product.productId;
+        function updateFeilds(product) {
+            document.getElementById('productTitle').value = product.productTitle;
+            document.getElementById('categoryId').value = product.category.categoryId;
+            document.getElementById('productPrice').value = product.productPrice;
+            document.getElementById('productDescription').value = product.productDescription;
+            document.getElementById('productImageFile').src = product.productImageUrl;
+            document.getElementById('productId').value = product.productId;
+            // document.getElementById('productStockQuantity').value= product.productStockQuantity;
+            // document.getElementById('product-status').value= product.productStatus;
         }
     </script>
 </body>
