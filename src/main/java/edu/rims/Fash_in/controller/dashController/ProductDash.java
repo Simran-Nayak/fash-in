@@ -104,6 +104,14 @@ public class ProductDash {
     //     return "redirect:/customer/product";   
     // }
 
+    @GetMapping("/product/images/{productId}")
+    @ResponseBody
+    public byte[] productImage(@PathVariable String productId) throws IOException {
+        Product product = productRepository.findById(productId).orElseThrow();
+        FileInputStream fis = new FileInputStream(product.getProductImageUrl());
+        return fis.readAllBytes();
+    }
+
     @GetMapping ("/products/{productId}")
     @ResponseBody 
     public ProductResponseDTO getproduct(@PathVariable String productId){
@@ -123,4 +131,4 @@ public class ProductDash {
         dto.setCategory(category);
         return dto;
     }
-    }
+}
