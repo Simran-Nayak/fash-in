@@ -27,10 +27,10 @@ public class AdminDash {
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/customer/admin")
+    @GetMapping("/admin/admin")
     String cart(Model model) {
         List<Product> products = productRepository.findAll();
         model.addAttribute("products", products);
-        return "customer/admin";
+        return "admin/admin";
     }
 }

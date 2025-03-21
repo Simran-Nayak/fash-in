@@ -34,16 +34,16 @@ public class ProductDash {
      @Autowired
     private CategoryRepository categoryRepository;
 
-    @GetMapping("/customer/product")
+    @GetMapping("/admin/product")
     String productDash(Model model) {
         List<Product> products = productRepository.findAll();
         List<Category> categories = categoryRepository.findAll();
         model.addAttribute("products", products);
         model.addAttribute("categories", categories);
-        return "customer/product";
+        return "admin/product";
     }
 
-     @PostMapping("/customer/product")
+     @PostMapping("/admin/product")
     public String ProductAdd(@ModelAttribute Product product,@RequestParam("productImageFile")MultipartFile file, 
     @RequestParam("categoryId") String categoryId
     )
@@ -63,7 +63,7 @@ public class ProductDash {
         product.setCreatedDate(LocalDateTime.now());
         product.setUpdatedDate(LocalDateTime.now());
         productRepository.save(product);
-        return "redirect:/customer/product";
+        return "redirect:/admin/product";
     }
 
     @GetMapping(value= "/product/image/{productId}", produces = {"image/jpg","image/jpeg","image/png"})
@@ -88,7 +88,7 @@ public class ProductDash {
         product.setUpdatedBy("user"); 
         product.setProductImageUrl("bksjbkbskbkdbksbbs");
         productRepository.save(product);
-        return "redirect:/customer/product";   
+        return "redirect:/admin/product";   
 
     }
 

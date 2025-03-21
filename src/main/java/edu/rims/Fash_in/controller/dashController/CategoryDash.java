@@ -16,10 +16,10 @@ public class CategoryDash {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @GetMapping("/customer/category")
+    @GetMapping("/admin/category")
     String cart(Model model) {
         List<edu.rims.Fash_in.entity.Category> categories = categoryRepository.findAll();
         model.addAttribute("categories", categories);
-        return "customer/category";
+        return "admin/category";
     }
 }

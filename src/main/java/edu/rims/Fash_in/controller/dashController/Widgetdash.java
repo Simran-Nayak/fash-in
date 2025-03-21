@@ -40,37 +40,37 @@ public class Widgetdash {
         this.productRepository = productRepository;
     }
 
-    @GetMapping ("/customer/widget")
+    @GetMapping ("/admin/widget")
     public String getWidgets (Model model){
         model.addAttribute("widgets", widgetRepository.findAll());
-        return "customer/widget";
+        return "admin/widget";
     }
-    @PostMapping("/customer/widget/add")
+    @PostMapping("/admin/widget/add")
     public String postMethodName(@RequestParam String widgetName, @RequestParam String widgetId, @RequestParam int sequence) {
         Widget widget = widgetRepository.findById(widgetId).orElse(new Widget());    
         widget.setWidgetName(widgetName);
         widget.setSequence(sequence);
         widget.setUpdatedDate(LocalDateTime.now());
         widgetRepository.save(widget);
-        return "redirect:/customer/widget";
+        return "redirect:/admin/widget";
     }
     @GetMapping("/widget/remove")
     public String removeWidget(@RequestParam("id")String widgetId) {
         Widget widget = widgetRepository.findById(widgetId).orElseThrow();
         widget.setWidgetStatus(WidgetStatus.INACTIVE);
         widgetRepository.save(widget);
-        return "redirect:/customer/widget";
+        return "redirect:/admin/widget";
     }
     @GetMapping("/widget/edit")
     public String editWidget(@RequestParam("id")String widgetId,Model model) {
         Widget widget = widgetRepository.findById(widgetId).orElseThrow();
         widget.setWidgetStatus(WidgetStatus.INACTIVE);
-        return "redirect:/customer/widget";
+        return "redirect:/admin/widget";
     }
     @PostMapping("/widget/product/add")
     public String addProductToWidget(@RequestParam MultipartFile file) {
         if(file.isEmpty())
-        return "redirect:/customer/widget" ;
+        return "redirect:/admin/widget" ;
         try{
             BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(file.getInputStream()));
             Map<String, String> details=new HashMap<>();
@@ -84,13 +84,13 @@ public class Widgetdash {
             // throw new Exception(e);
         }catch(Exception e){
         }
-            return "redirect:/customer/widget";
+            return "redirect:/admin/widget";
     }
-    @GetMapping("/customer/widget/products")
+    @GetMapping("/admin/widget/products")
     public String getMethodName(@RequestParam("id")String widgetId, Model model){
         
         model.addAttribute("widget", widgetRepository.findById(widgetId).orElseThrow());
-        return "customer/widget-products";
+        return "admin/widget-products";
     }
     private void processDetails(String widgetId,String productId){
         Product product = productRepository.findById(productId).orElse(null);
@@ -109,7 +109,7 @@ public class Widgetdash {
         widget.removeProduct(productId);
 
         widgetRepository.save(widget);
-        return "redirect:/customer/widget";
+        return "redirect:/admin/widget";
     }
 }
 
