@@ -103,32 +103,29 @@ public class ProductDash {
     //     productRepository.save(product);
     //     return "redirect:/customer/product";   
     // }
-
-    @GetMapping("/product/images/{productId}")
-    @ResponseBody
-    public byte[] productImage(@PathVariable String productId) throws IOException {
-        Product product = productRepository.findById(productId).orElseThrow();
-        FileInputStream fis = new FileInputStream(product.getProductImageUrl());
-        return fis.readAllBytes();
-    }
-
-    @GetMapping ("/products/{productId}")
+    @GetMapping("/products/{productId}")
     @ResponseBody 
-    public ProductResponseDTO getproduct(@PathVariable String productId){
+    public ProductResponseDTO getProduct(@PathVariable String productId) {
         Product product = productRepository.findById(productId).orElseThrow();
+        
         ProductResponseDTO dto = new ProductResponseDTO();
         dto.setProductId(productId);
         dto.setProductTitle(product.getProductTitle());
-        dto.setProductDescprition(product.getProductDescription());
+        dto.setProductDescription(product.getProductDescription());  // Fixed property name
         dto.setProductPrice(product.getProductPrice());
-        dto.setProductStatus(product.getProductStatus().toString());
+        
+        dto.setProductStatus(product.getProductStatus() != null ? product.getProductStatus().toString() : "Unavailable");
+    
         dto.setProductStockQuantity(product.getProductStockQuantity());
-        dto.setProductImageUrl(product.getProductImageUrl());
-
-        CategoryResponse category = dto.new CategoryResponse();
-        category.setCategoryId (product.getCategory().getCategoryId());
-        category.setCategoryTitle(product.getCategory(). getCategoryTitle());
+        dto.setProductImageUrl(product.getProductImageUrl());  // Fixed case issue
+    
+        ProductResponseDTO.CategoryResponse category = dto.new CategoryResponse();
+        category.setCategoryId(product.getCategory().getCategoryId());
+        category.setCategoryTitle(product.getCategory().getCategoryTitle());
+    
         dto.setCategory(category);
+    
         return dto;
     }
+    
 }

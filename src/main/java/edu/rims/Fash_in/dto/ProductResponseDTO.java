@@ -9,7 +9,7 @@ import lombok.Setter;
 public class ProductResponseDTO{
     private String productId;
     private String productTitle;
-    private String productDescprition;
+    private String productDescription;
     private double productPrice;
     private int productStockQuantity;
     private String productStatus;
