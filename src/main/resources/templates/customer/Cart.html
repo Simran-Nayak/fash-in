@@ -20,7 +20,7 @@
         </div>
 
         <div class="dropdown">
-            <button class="dropbtn">Profile &#9660</button>
+            <button class="dropbtn">Profile &#9660;</button>
             <div class="dropdown-content">
                 <a href="#">My Profile</a>
                 <a href="#">Order</a>
@@ -32,11 +32,22 @@
             </div>
         </div>
     </div>
+
     <div class="main">
         <div class="wrap">
             <span class="address-reference">To your Current Saved address ></span>
-            <a class="address-update" href="#">Change address</a>
+            <button class="address-update" onclick="openModal()">Change address</button>
         </div>
+
+        <div class="dropdown-container1">
+            <label for="address-dropdown">Select Delivery Address:</label>
+            <select id="address-dropdown" class="address-dropdown">
+                <option value="home">Home - 123 Main Street</option>
+                <option value="office">Office - 456 Business Ave</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
         <div class="container">
             <div class="wrapper">
                 <img class="cart-img"
@@ -44,14 +55,15 @@
                     alt="image">
                 <div class="info">
                     <h3>Men Regular Fit Checkered Spread Collar Casual Shirt</h3>
-                    <p class="cart-specs">Fits:Regular|Size:XL</p>
-                    <span class="deliver-date">Delivery by Sun Feb 23 |<span class="charges-span">$40</span><span
+                    <p class="cart-specs">Fits: Regular | Size: XL</p>
+                    <span class="deliver-date">Delivery by Sun Feb 23 | <span class="charges-span">$40</span><span
                             class="free-span">Free</span> </span>
-                    <span class="actual-price">$769</span>
-                    <span class="amount">$1766</span>
-                    <span class="offer">63% off 2Offers available !!</span>
+                    <span class="actual-price">$1766</span>
+                    <span class="amount" id="amount">$769</span>
+                    <span class="offer">63% off 2 Offers available !!</span>
                 </div>
             </div>
+
             <div class="counter-box">
                 <button onclick="decrease()">-</button>
                 <div class="count" id="count">0</div>
@@ -67,27 +79,90 @@
     <div class="Calc">
         <h3>Price Details</h3>
         <hr>
-        <div class="amount">Price</div>
-        <div class="discount">Discount</div>
-        <div class="delivery-charges"> Delivery Charges</div>
+        <div class="amount" id="displayprice">Price:</div>
+        <div class="discount">Discount:</div>
+        <div class="delivery-charges">Delivery Charges:</div>
         <hr>
-        <div class="total">Total Amount: </div>
+        <div class="total">Total Amount: <span id="total-amount">$0</span></div>
         <hr>
-        
+    </div>
+
+    <div class="dropdown-payment">
+        <label for="payment-dropdown">Select Payment Method:</label>
+        <select id="payment-dropdown" class="payment-dropdown">
+            <option value="cod">Cash on Delivery</option>
+            <option value="credit">Credit Card</option>
+            <option value="debit">Debit Card</option>
+            <option value="upi">UPI</option>
+            <option value="paypal">PayPal</option>
+        </select>
+    </div>
+
+    <div id="addressModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Enter New Address</h2>
+            <form id="addressForm">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" required>
+
+                <label for="street">Street Address:</label>
+                <input type="text" id="street" required>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" required>
+
+                <label for="state">State:</label>
+                <input type="text" id="state" required>
+
+                <label for="zip">Zip Code:</label>
+                <input type="text" id="zip" required>
+
+                <button type="submit">Save Address</button>
+            </form>
+        </div>
     </div>
 
     <script>
         let count = 0;
+        let itemPrice = parseFloat(document.getElementById("amount").textContent.replace("$", ""));
+        let totalAmount = 0;
+        let displayProductPrice = document.getElementById("displayprice");
+        displayProductPrice.textContent = "Price: $" + itemPrice;
+
+        function updateTotal() {
+            totalAmount = count * itemPrice;
+            document.getElementById("total-amount").textContent = "$" + totalAmount;
+        }
 
         function increase() {
             count++;
             document.getElementById("count").textContent = count;
+            updateTotal();
         }
 
         function decrease() {
             if (count > 0) {
                 count--;
                 document.getElementById("count").textContent = count;
+                updateTotal();
+            }
+        }
+
+        function openModal() {
+            document.getElementById("addressModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("addressModal").style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == document.getElementById("addressModal")) {
+                closeModal();
             }
         }
     </script>
