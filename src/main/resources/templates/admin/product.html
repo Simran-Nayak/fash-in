@@ -21,24 +21,24 @@
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Product</th>
                         <th>Product Description</th>
                         <th>Images</th>
                         <th>Price</th>
                         <th>Stock</th>
+                        <th>Product Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr data-th-each="product:${products}">
-                        <td data-th-text="${product.productId}"></td>
                         <td data-th-text="${product.productTitle}"></td>
                         <td data-th-text="${product.productDescription}"></td>
                         <td><img data-th-src="|/product/image/${product.productId}|" alt="Product Image" width="50">
                         </td>
                         <td class="td" data-th-text="${product.productPrice}"></td>
                         <td class="td" data-th-text="${product.productStockQuantity}"></td>
+                        <td data-th-text="${product.productStatus}"></td>
                         <td class="td">
                             <button class="button" th:attr="onclick=|openModal('${product.productId}')|">Edit</button>
                             <button class="button">Delete</button>
