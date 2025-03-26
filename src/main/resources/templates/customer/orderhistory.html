@@ -4,29 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/style/orderhistory.css">
 </head>
 <body>
-    
-        <link rel="stylesheet" href="../../static/style/orderhistory.css">
-        <div class="container">
-            <header>
-                <h1>Order History</h1>
-            </header>
-    
-            <div class="order-list">
-                <h2>Your Orders</h2>
-                <ul id="order-history">
-                    <li class="order-item" data-th-each="order : ${orders}">
-                        <h3 data-th-text="|Order Id: ${order.orderId}|"></h3>
-                        <div class="order-details">
-                            <p ></p>
-                            <p ></p>
-                        </div>
-                        <button>View</button>
-                    </li>
-                </ul>
+    <div class="container">
+        <h2>Order History</h2>
+        
+        <div class="order">
+            <img src="https://www.westside.com/cdn/shop/files/300988177BROWN_1.jpg?v=1723620022" alt="Brown Solid slip dress">
+            <div class="order-details">
+                <h4>Brown Solid slip dress</h4>
+                <p>Order ID: #1001 | March 15, 2025</p>
+                <p>Total: $150</p>
+                <p class="rating">★★★★★</p>
             </div>
-            <div class="home"><a href="/customer" class="home-button">Home</a></div>
+            <span class="status delivered">Delivered</span>
+            <a href="#" class="btn">View Details</a>
         </div>
+
+        <div class="order">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2023/6/317525700/CO/KT/SL/3074232/fragrance-perfume-manufacturer-500x500.png" alt="Perfume">
+            <div class="order-details">
+                <h4>Perfume</h4>
+                <p>Order ID: #1001 | March 15, 2025</p>
+                <p>Total: $150</p>
+                <p class="rating">★★★★★</p>
+            </div>
+            <span class="status delivered">Delivered</span>
+            <a href="#" class="btn">View Details</a>
+        </div>
+
+        <div class="order">
+            <img src="https://www.shanidarden.com/cdn/shop/articles/SD_2000x2000_-_How_To_Introduce_New_Skincare_Products_Into_Your_Routine_1600x.png?v=1694810492" alt="SkinCare Products">
+            <div class="order-details">
+                <h4>SkinCare Products</h4>
+                <p>Order ID: #1001 | March 15, 2025</p>
+                <p>Total: $150</p>
+                <p class="rating">★★★★★</p>
+            </div>
+            <span class="status delivered">Delivered</span>
+            <a href="#" class="btn">View Details</a>
+        </div>
+
+        <div class="order">
+            <img src="https://thekurtacompany.com/cdn/shop/products/navy-blue-printed-kurta-614052.jpg?v=1691134373" alt="Men Kurtas">
+            <div class="order-details">
+                <h4>Men Kurtas</h4>
+                <p>Order ID: #1002 | March 10, 2025</p>
+                <p>Total: $80</p>
+                <p class="rating">★★★★☆</p>
+            </div>
+            <span class="status delivered ">Delivered</span>
+            <a href="#" class="btn">View Details</a>
+        </div>
+
+        <div class="order">
+            <img src="https://www.distacart.com/cdn/shop/products/iA3SZirpkI_1280x.jpg?v=1713512652" alt="ManMatter">
+            <div class="order-details">
+                <h4>Man Matters Hair Oil</h4>
+                <p>Order ID: #1001 | March 15, 2025</p>
+                <p>Total: $150</p>
+                <p class="rating">★★★★★</p>
+            </div>
+            <span class="status In-Transit">In Transit</span>
+            <a href="#" class="btn">View Details</a>
+        </div>
+
+        <div class="order">
+            <img src="https://images-cdn.ubuy.ae/6350991d7ad90834cb030c35-girl-athletic-shoes-kids-unicorn.jpg" alt="Kids Sneakers">
+            <div class="order-details">
+                <h4>Kids Sneakers</h4>
+                <p>Order ID: #1003 | March 5, 2025</p>
+                <p>Total: $200</p>
+                <p class="rating">★★★☆☆</p>
+            </div>
+            <span class="status cancelled">Cancelled</span>
+            <a href="#" class="btn">View Details</a>
+        </div>
+    </div>
 </body>
 </html>
