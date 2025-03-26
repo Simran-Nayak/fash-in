@@ -4,11 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-
-import javax.management.RuntimeErrorException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import edu.rims.Fash_in.constant.WidgetStatus;
-import edu.rims.Fash_in.entity.Category;
 import edu.rims.Fash_in.entity.Product;
 import edu.rims.Fash_in.entity.Widget;
 import edu.rims.Fash_in.repository.*;
@@ -28,23 +24,12 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class Widgetdash {
        
-    private final ProductRepository productRepository;
-
-    private final AdminDash adminDash;
+    @Autowired
+    private ProductRepository productRepository;
 
     @Autowired
     private WidgetRepository widgetRepository;
 
-    Widgetdash(AdminDash adminDash, ProductRepository productRepository) {
-        this.adminDash = adminDash;
-        this.productRepository = productRepository;
-    }
-
-    @GetMapping ("/admin/widget")
-    public String getWidgets (Model model){
-        model.addAttribute("widgets", widgetRepository.findAll());
-        return "admin/widget";
-    }
     @PostMapping("/admin/widget/add")
     public String postMethodName(@RequestParam String widgetName, @RequestParam String widgetId, @RequestParam int sequence) {
         Widget widget = widgetRepository.findById(widgetId).orElse(new Widget());    
@@ -54,6 +39,7 @@ public class Widgetdash {
         widgetRepository.save(widget);
         return "redirect:/admin/widget";
     }
+
     @GetMapping("/widget/remove")
     public String removeWidget(@RequestParam("id")String widgetId) {
         Widget widget = widgetRepository.findById(widgetId).orElseThrow();

@@ -41,6 +41,7 @@
                 <input type="password" id="password" name="cpassword" required>
             </div>
             <button type="submit" class="btn">Sign Up</button>
+            <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
         </form>
     </div>
 </body>

@@ -14,15 +14,17 @@
     <div class="logo">
         <a href="http://localhost:1211/customer/home"><img src="/images/logo.png" alt="logo" class="logo-img"></a>
     </div>
-    <form action="" method="">
+    <form action="/customer/sign-in" method="post">
         <div class="container">
             <h1 class="header">Sign In</h1>
-            <input placeholder="Email or mobile number" type="email" class="input" id="email-input">
-            <input placeholder="Password" type="password" class="input" id="password-input">
-            <a href="http://localhost:1211/customer/home" class="anchor-redirect-btn" id="signIn-btn">Sign In</a>
+            <h2 data-th-if="${param.error != null}" style="color: white;">Invalid username/password</h2>
+            <input placeholder="Email or mobile number" type="email" class="input" id="email-input" name="username">
+            <input placeholder="Password" type="password" class="input" id="password-input" name="password">
+            <input type="submit" value="Sign In" class="anchor-redirect-btn">
             <p class="OR">OR</p>
             <a href="http://localhost:1211/customer/otp-login" class="anchor-redirect-btn" id="otp-btn">Sign-In with OTP</a>
             <a href="#" id="password-reset">Forgot Password?</a>
+            <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
             <div class="div-label">
                 <label><input type="checkbox" class="checkbox">Remember me</label>
             </div>

@@ -21,27 +21,31 @@
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Product</th>
+                     
+                        <th>Product Title</th>
                         <th>Product Description</th>
                         <th>Images</th>
                         <th>Price</th>
                         <th>Stock</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr data-th-each="product:${products}">
-                        <td data-th-text="${product.productId}"></td>
                         <td data-th-text="${product.productTitle}"></td>
                         <td data-th-text="${product.productDescription}"></td>
                         <td><img data-th-src="|/product/image/${product.productId}|" alt="Product Image" width="50">
                         </td>
                         <td class="td" data-th-text="${product.productPrice}"></td>
                         <td class="td" data-th-text="${product.productStockQuantity}"></td>
+                        <td data-th-text="${product.productStatus }"></td>
+                        
+
                         <td class="td">
                             <button class="button" th:attr="onclick=|openModal('${product.productId}')|">Edit</button>
-                            <button class="button">Delete</button>
+                             
+                            <a class="button" data-th-href="|/admin/product/remove?id=${product.productId}|"> Delete</a>
                         </td>
                     </tr>
                 </tbody>
@@ -53,9 +57,7 @@
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup">
             <h2>Add Product</h2>
-            <form action="/customer/product" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="productId" id="productId"> <!-- Add hidden field for product ID -->
-
+            <form action="/admin/product" method="post" enctype="multipart/form-data" id="productFormModal">
                 <label for="productTitle">Product Name:</label>
                 <input type="text" placeholder="Product Name" name="productTitle" id="productTitle">
 
@@ -76,6 +78,8 @@
                     </select>
 
                     <button type="submit" id="submit-button">Submit</button>
+                    <input type="hidden" name="productId" id="productId">
+                    <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
                 </div>
             </form>
 
@@ -103,13 +107,19 @@
         async function openModal(productId = null) {
             displayDiv.style.display = "block";
             if (productId) {
-                const response = await fetch(`/products/${productId}`).catch((err) =>
+                const response = await fetch(`/admin/products/${productId}`).catch((err) =>
                     console.error(err)
                 );
 
                 const product = await response.json();
                 updateFeilds(product);
+            } else {
+                document.getElementById('productFormModal').reset();
             }
+        }
+
+        function deleteProduct (element){
+            element.parentElement.parentElement.remove();
         }
 
         function updateFeilds(product) {
@@ -117,8 +127,8 @@
             document.getElementById('categoryId').value = product.category.categoryId;
             document.getElementById('productPrice').value = product.productPrice;
             document.getElementById('productDescription').value = product.productDescription;
-            document.getElementById('productImageFile').src = product.productImageUrl;
             document.getElementById('productId').value = product.productId;
+            document.getElementById('productImageFile ').value = product.productImageUrl;
             // document.getElementById('productStockQuantity').value= product.productStockQuantity;
             // document.getElementById('product-status').value= product.productStatus;
         }

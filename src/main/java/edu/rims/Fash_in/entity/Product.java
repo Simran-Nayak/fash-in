@@ -36,7 +36,7 @@ public class Product extends Auditable {
     @Column(name = "product_stock_quantity", nullable = false)
     private int productStockQuantity;
 
-    @Column(name = "product_image_url", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "product_image_url", columnDefinition = "TEXT")
     private String productImageUrl;
 
     @Enumerated(EnumType.STRING)

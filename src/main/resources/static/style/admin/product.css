@@ -69,7 +69,9 @@ table {
     table-layout: fixed;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 0.063rem solid #ddd;
     padding: 1rem;
     text-align: left;
@@ -85,7 +87,7 @@ th {
     background: #6b2e96;
     color: white;
     border: none;
-    padding: 5% 8%;
+    padding: 5% 7%;
     cursor: pointer;
     border-radius: 0.313rem;
     margin-right: 0.5rem;
@@ -152,14 +154,14 @@ label {
     width: 12.5rem;
     height: 2.5rem;
     border-radius: 0.313rem;
-    float:right;
+    float: right;
     top: 38%;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     cursor: pointer;
 }
 
-#addproductbtn:hover{
-    color:#FB641B;
+#addproductbtn:hover {
+    color: #FB641B;
 }
 
 .popup-overlay {
@@ -193,7 +195,8 @@ label {
     text-align: center;
 }
 
-.popup input, .popup textarea {
+.popup input,
+.popup textarea {
     width: 100%;
     padding: 0.625rem;
     margin: 0.313rem 0;
@@ -215,16 +218,16 @@ label {
     background: #218838;
 }
 
-#categorybutton{
-    position:relative;
-    top:3vh;
-    left:-5vw;
+#categorybutton {
+    position: relative;
+    top: 3vh;
+    left: -5vw;
 }
 
 .close-btn {
-    position:relative;
-    top:-3.8vh;
-    left:6vw;
+    position: relative;
+    top: -4.4xvh;
+    left: 7vw;
     background: red;
     color: white;
     padding: 0.313rem;
