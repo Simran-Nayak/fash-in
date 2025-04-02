@@ -40,7 +40,7 @@
 
                     <div class="buttons">
                         <button class="wishlist">❤️ Add to Wishlist</button>
-                        <button class="cart">🛒 Add to Bag</button>
+                        <a class="cart" id="incr" data-th-href="|/customer/cart?product=${product.productId}|">🛒 Add to Bag</a>
                     </div>
 
                     <h3>Select Delivery Location</h3>
@@ -94,6 +94,11 @@
         <footer data-th-replace="~{fragment/common :: footer}"></footer>
 
         <script>
+            function onclick() {
+              
+            }
+
+
             function searchswipe() {
                 let button = document.getElementById("parentbtn");
                 let searchDiv = document.getElementById("searchdiv");

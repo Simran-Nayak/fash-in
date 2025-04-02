@@ -113,6 +113,21 @@ button {
     cursor: pointer;
     border-radius: 0.3125rem;
 }
+.cart{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    text-decoration:none;
+    width:200px;
+    height:37px;
+    top:10px;
+    border-radius:5px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
 
 .main-image {
     width: 21.875rem;

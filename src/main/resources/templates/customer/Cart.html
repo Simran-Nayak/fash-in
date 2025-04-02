@@ -49,17 +49,15 @@
         </div>
 
         <div class="container">
-            <div class="wrapper">
-                <img class="cart-img"
-                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/g/z/1/xl-pst-056-shimak-original-imah2yyk3vmncgfn.jpeg?q=70"
-                    alt="image">
+            <div class="wrapper" th:each="product : ${products}">
+                <img class="cart-img" data-th-src="|/product/image/${product.productId}|" alt="image">
                 <div class="info">
                     <h3>Men Regular Fit Checkered Spread Collar Casual Shirt</h3>
                     <p class="cart-specs">Fits: Regular | Size: XL</p>
                     <span class="deliver-date">Delivery by Sun Feb 23 | <span class="charges-span">$40</span><span
                             class="free-span">Free</span> </span>
                     <span class="actual-price">$1766</span>
-                    <span class="amount" id="amount">$769</span>
+                    <span class="amount" id="amount" th:text="'$' + ${product.productPrice}"></span>
                     <span class="offer">63% off 2 Offers available !!</span>
                 </div>
             </div>
@@ -69,10 +67,7 @@
                 <div class="count" id="count">0</div>
                 <button onclick="increase()">+</button>
             </div>
-
-            <div class="place-order">
-                <button class="order-btn">Place Order</button>
-            </div>
+            <button class="order-btn">Place Order</button>
         </div>
     </div>
 
@@ -132,6 +127,7 @@
         let totalAmount = 0;
         let displayProductPrice = document.getElementById("displayprice");
         displayProductPrice.textContent = "Price: $" + itemPrice;
+        document.getElementById("total-amount").textContent=itemPrice;
 
         function updateTotal() {
             totalAmount = count * itemPrice;
