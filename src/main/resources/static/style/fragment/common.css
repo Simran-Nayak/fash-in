@@ -102,8 +102,8 @@ body {
     top: 400px;
     position: relative;
     background-color: #EFEFEF;
-    height: 700px;
     width: 100%;
+    height:0px !important;
 }
 
 .first-bar {
@@ -114,6 +114,15 @@ body {
     height: 80px;
     width: 100%;
     color: #EFEFEF;
+}
+
+.first-bar a {
+    top: 35px;
+    position: relative;
+    font-size: 24px;
+    margin: 10px;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 #content-1 {
@@ -142,7 +151,6 @@ body {
 .second-bar {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
     top: 100px;
     background-color: #827a7a38;
     width: 100%;
@@ -174,7 +182,20 @@ body {
     margin-left: 80px;
 }
 
-.third-bar {
+.fashin-endbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top:18rem !important;
+    color: #ffffff;
+    width: 100%;
+    height: 60px;
+    background-color: #673147;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+/* .third-bar {
     display: flex;
     width: 100%;
     background-color: rgb(250, 247, 247);
@@ -212,30 +233,7 @@ body {
 
 .hair-care {
     margin-left: 80px;
-}
-
-.fashin-endbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    top: 100px;
-    position: relative;
-    width: 100%;
-    height: 60px;
-    background-color: #673147;
-    font-size: 16px;
-    letter-spacing: 2px;
-}
-
-.first-bar a {
-    top: 35px;
-    position: relative;
-    font-size: 24px;
-    margin: 10px;
-    color: #ffffff;
-    text-decoration: none;
-}
+} */
 
 #searchinput {
     position: absolute;

@@ -65,7 +65,9 @@
             <hr>
         </div>
         <div class="product" data-th-if="${param.category != null}">
-            <h1 class="product-head">Mens Top-Wears</h1>
+            <div data-th-href="|/customer/plp?category=${category.categoryId}|">
+                <h1 class="product-head" th:text="${category?.categoryTitle}"></h1>
+            </div>
             <div class="product-container">
                 <div class="product-card" data-th-each="product : ${category.products}">
                     <a data-th-href="|/customer/product/pdp?product=${product.productId}|">
@@ -79,7 +81,7 @@
                             <p class="product-short-description" th:text="${product.productTitle}">A short line about
                                 the
                                 product</p>
-                            <span class="price">$20</span>
+                            <span class="price" th:text="${product.productPrice}"></span>
                             <span class="actual-price">$40</span>
                         </div>
                     </a>
@@ -88,7 +90,7 @@
         </div>
 
         <div class="product" data-th-if="${param.search != null}">
-            <h1 class="product-head">Mens Top-Wears</h1>
+            <h1 class="product-head" data-th-each="category : ${categories}" th:text="${category.categoryTitle}"></h1>
             <div class="product-container">
                 <div class="product-card" data-th-each="product : ${products}">
                     <a data-th-href="|/customer/product/pdp?product=${product.productId}|">

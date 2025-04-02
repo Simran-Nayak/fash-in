@@ -38,5 +38,20 @@ public class Category extends Auditable {
     @OneToMany(mappedBy ="category")
     private List<Product> products;
 
+    public Category getCategoryById(String categoryId2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCategoryById'");
+    }
+
+    public Object getAllCategories() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllCategories'");
+    }
+
+    public Object createCategory(Category category) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'createCategory'");
+    }
+
 }
 

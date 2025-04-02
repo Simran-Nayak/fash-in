@@ -20,20 +20,16 @@
                 <h2 data-th-text="${product.productTitle}"></h2>
                 <div class="image-section">
                     <div class="thumbnails">
-                        <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/f/e/fe26601CSMSS23_CSMSSRT5599_1.jpg?rnd=20200526195200&tr=w-512"
-                            alt="Thumbnail 1">
-                        <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/f/e/fe26601CSMSS23_CSMSSRT5599_2.jpg?rnd=20200526195200&tr=w-512"
-                            alt="Thumbnail 2">
-                        <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/f/e/fe26601CSMSS23_CSMSSRT5599_3.jpg?rnd=20200526195200&tr=w-512"
-                            alt="Thumbnail 3">
+                        <img data-th-src="|/product/image/${product.productId}|" alt="Thumbnail 1">
+                        <img data-th-src="|/product/image/${product.productId}|" alt="Thumbnail 2">
+                        <img data-th-src="|/product/image/${product.productId}|" alt="Thumbnail 3">
                     </div>
-                    <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/f/e/fe26601CSMSS23_CSMSSRT5599_1.jpg?rnd=20200526195200&tr=w-512"
-                        alt="Main Product" class="main-image">
+                    <img data-th-src="|/product/image/${product.productId}|" alt="Main Product" class="main-image">>
                 </div>
 
                 <div class="product-details">
                     <h3 data-th-text="${product.productDescription}"></h3>
-                  
+
                     <h3>Select Size</h3>
                     <div class="sizes">
                         <button>S</button>

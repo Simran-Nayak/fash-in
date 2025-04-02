@@ -21,7 +21,6 @@
             <table>
                 <thead>
                     <tr>
-                     
                         <th>Product Title</th>
                         <th>Product Description</th>
                         <th>Images</th>
@@ -40,12 +39,9 @@
                         <td class="td" data-th-text="${product.productPrice}"></td>
                         <td class="td" data-th-text="${product.productStockQuantity}"></td>
                         <td data-th-text="${product.productStatus }"></td>
-                        
-
                         <td class="td">
                             <button class="button" th:attr="onclick=|openModal('${product.productId}')|">Edit</button>
-                             
-                            <a class="button" data-th-href="|/admin/product/remove?id=${product.productId}|"> Delete</a>
+                            <a class="button" data-th-href="|/admin/product/remove?id=${product.productId}|">Delete</a>
                         </td>
                     </tr>
                 </tbody>
@@ -73,8 +69,7 @@
 
                 <div id="categorybutton">
                     <select name="categoryId" id="categoryId">
-                        <option th:each="category : ${categories}" th:value="${category.categoryId}"
-                            th:text="${category.categoryTitle}"></option>
+                        <option th:each="category : ${categories}" th:value="${category.categoryId}" th:text="${category.categoryTitle}"></option>
                     </select>
 
                     <button type="submit" id="submit-button">Submit</button>
@@ -118,7 +113,7 @@
             }
         }
 
-        function deleteProduct (element){
+        function deleteProduct(element) {
             element.parentElement.parentElement.remove();
         }
 
