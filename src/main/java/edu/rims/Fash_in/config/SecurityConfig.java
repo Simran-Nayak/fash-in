@@ -30,6 +30,7 @@ public class SecurityConfig {
                         .requestMatchers("/customer/home", "/customer/plp", "/customer/pdp").permitAll()
                         .requestMatchers("/customer/sign-in", "/customer/sign-up").permitAll()
                         .requestMatchers("/file/**", "/user/**", "/").permitAll()
+                        .requestMatchers("/customer/widget/**").hasRole("ADMIN")
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated());
         http.formLogin(form -> form.loginPage("/customer/sign-in")

@@ -1,110 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin - Widgets</title>
     <link rel="stylesheet" href="/style/admin/widget.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
     <div class="admin-container">
+        <!-- Sidebar -->
         <aside class="sidebar">
             <h1>Fashin Admin</h1>
             <ul>
-                <li><a href="http://localhost:1211/customer/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="/customer/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
-                <li><a href="http://localhost:1211/admin/product"><i class="fas fa-box"></i> Products</a></li>
-                <li><a href="http://localhost:1211/admin/category"><i class="fas fa-tags"></i> Category</a></li>
-                <li><a href="http://localhost:1211/admin/widget"><i class="fas fa-tags"></i> Widget</a></li>
+                <li><a href="/admin/product"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="/admin/category"><i class="fas fa-tags"></i> Category</a></li>
+                <li><a href="/admin/widget"><i class="fas fa-tags"></i> Widget</a></li>
                 <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
                 <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </aside>
 
-            <form action="/customer/widget/add" method="post" class="addWidgetContainer">
-                <input type="text" class="input" name="widgetName" placeholder="Enter a widget name..." data-th-value="${widget != null ? widget.widgetName :null}">
-                <input type="text" class="input" placeholder="sequence id" name="sequence" data-th-value="${widget!= null ? widget.sequence:null}">
-                <input type="hidden" name="widgetId" data-th-value="${widget != null ? widget.widgetId :''}">
-                <input type="submit" id="submitbtn">
-            </form>
+        <!-- Widget Form -->
+        <form action="/admin/widget/add" method="post" class="addWidgetContainer">
+            <input type="text" class="input" name="widgetName" placeholder="Enter a widget name..."
+                th:value="${widget != null} ? ${widget.widgetName} : ''">
+            <input type="number" class="input" name="sequence" placeholder="Enter sequence..."
+                th:value="${widget != null} ? ${widget.sequence} : ''">
+            <input type="hidden" name="widgetId" th:value="${widget != null} ? ${widget.widgetId} : ''">
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+            <input type="submit" id="submitbtn" value="Save Widget">
+        </form>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <h1>Widget</h1>
+            <h1>Widget List</h1>
             <div class="addProductWidgetBtnContainer">
                 <button class="addProductWidgetBtn" id="addProductButton">Add product to widget</button>
             </div>
+
             <table>
-                <tablehead>
+                <thead>
                     <tr>
                         <th>Widget Name</th>
-                        <th> Widget Id</th>
-                        <th> sequence</th>
-                        <th>Widget Status</th>
+                        <th>Widget ID</th>
+                        <th>Sequence</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
-                    <tbody id="categoryTable">
-                        <tr data-th-each="widget: ${widgets}">
-                            <td data-th-text="${widget.widgetName}"></td>
-                            <td data-th-text="${widget.widgetId}"></td>
-                            <td data-th-text="${widget.sequence}"></td>
-                            <td data-th-text="${widget.widgetStatus}"
-                                data-th-class="${widget.widgetStatus.name()=='ACTIVE'?'clr-yellow': 'clr-red'}"></td>
-                            <td>
-                                <a data-th-href="|/customer/widget/edit?id=${widget.widgetId}|" class="action-link"> <i
-                                        class="fa-solid fa-pen-to-square"></i></a>
-                                <a data-th-href="|/customer/widget/remove?id=${widget.widgetId}|" class="action-link"><i
-                                        class="fa-solid fa-trash"></i></a>
-                                <a data-th-href="|/customer/widget/products?id=${widget.widgetId}|"
-                                    title="show products" style="all:unset; cursor: pointer;"><i
-                                        class="fas fa-box-open"></i> </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </tablehead>
+                </thead>
+                <tbody id="categoryTable">
+                    <tr th:each="widget : ${widgets}">
+                        <td th:text="${widget.widgetName}"></td>
+                        <td th:text="${widget.widgetId}"></td>
+                        <td th:text="${widget.sequence}"></td>
+                        <td th:text="${widget.widgetStatus}"
+                            th:classappend="${widget.widgetStatus.name() == 'ACTIVE'} ? 'clr-yellow' : 'clr-red'">
+                        </td>
+                        <td>
+                            <a th:href="@{|/admin/widget/edit?id=${widget.widgetId}|}" class="action-link" title="Edit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a th:href="@{|/admin/widget/remove?id=${widget.widgetId}|}" class="action-link" title="Delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                            <a th:href="@{|/admin/widget/products?id=${widget.widgetId}|}" title="Show products"
+                               class="action-link">
+                                <i class="fas fa-box-open"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </main>
     </div>
 
-
-    <!--Modal-->
+    <!-- Modal -->
     <div class="widgetModel d-none">
         <div class="modal-box">
             <div class="cross-icon">
                 <button id="closebtn"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-header">
-                <h2>Add product to widget</h2>
+                <h2>Add Product to Widget</h2>
             </div>
             <hr>
             <div class="modal-body">
-                <form action="/widget/product/add" method="post" enctype="multipart/form-data" id="widgetProductForm">
-                    <p>Note: Download template <a href="/file/widget-template.csv" download>click the link</a></p>
-                    <input type="file" accept="text/csv" name="file" id="input1">
+                <form action="/admin/widget/product/add" method="post" enctype="multipart/form-data"
+                    id="widgetProductForm">
+                    <p>Note: Download template <a href="/file/widget-template.csv" download>here</a></p>
+                    <input type="file" accept=".csv" name="file" id="input1" required>
                     <div class="text-center">
-                        <input type="submit" value="upload" id="uploadinp">
+                        <input type="submit" value="Upload" id="uploadinp">
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 
+    <!-- JavaScript for Modal -->
     <script>
-        let addProductButton = document.getElementById("addProductButton");
-        let closebutton = document.getElementById("closebtn");
-        let display= document.getElementsByClassName("d-none")[0];
-        addProductButton.addEventListener('click',()=>{
-            display.classList.toggle("d-none");
+        const addProductButton = document.getElementById("addProductButton");
+        const closeButton = document.getElementById("closebtn");
+        const modal = document.querySelector(".widgetModel");
+
+        addProductButton.addEventListener('click', () => {
+            modal.classList.toggle("d-none");
         });
 
-        closebutton.addEventListener('click',()=>{
-            display.classList.add("d-none");
-        })
+        closeButton.addEventListener('click', () => {
+            modal.classList.add("d-none");
+        });
     </script>
-
 </body>
 
 </html>
